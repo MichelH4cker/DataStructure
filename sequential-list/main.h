@@ -1,7 +1,7 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
-#define MAX_LIST 100 //tamanho máximo do vetor
+#define MAX_LIST 10 //tamanho máximo do vetor
 
 #include <stdio.h>
 #include <stdlib.h>

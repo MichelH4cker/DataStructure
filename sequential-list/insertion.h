@@ -16,11 +16,11 @@ int error(List *list);
 
 int fullList(List *list);
 
-void startInsertion(List *list, struct Data content);
+int startInsertion(List *list, struct Data content);
 
-int endInsertion(List *list);
+int endInsertion(List *list, struct Data content);
 
-int specificInsertion(List *list);
+int specificInsertion(List *list, struct Data content);
 
 
 
