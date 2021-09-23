@@ -1,12 +1,67 @@
 #include<stdio.h>
+
 #include "main.h"
 #include "createDestroyList.h"
+#include "insertion.h"
+
+#define START 1
+#define END 2
 
 int main (){
     List *list;
     list = createList();
 
+    
+    int typeInsertion;    
+    printf("\n====================================================\n");
+    printf("\n");
+    printf("Digite o número correspondente à maneira pela qual você deseja inserir os dados \n");
 
+    printf("1) inserir dado no início da lista. \n");
+    printf("2) inserir dado no final da lista. \n");
+    printf("3) inserir dado na posição que eu informar. \n");
+
+    printf("\n====================================================\n");
+    printf("\n");
+
+    scanf("%d", &typeInsertion);
+    printf("\n");
+
+    /*
+    int times = 0;
+    printf("\n====================================================\n");
+    printf("\n");
+    printf("Digite o número de dados que você deseja inserir: ")
+    scanf("%d", &times);
+    printf("\n====================================================\n");
+    printf("\n");
+    */
+    struct Data content0 = {0, "oi"};
+    struct Data content1 = {1, "fala"}; 
+
+    int report;
+    if (typeInsertion == START){
+        report = startInsertion(list, content0);
+        if (report == 0) {
+            printf("algo de errado não está certo, melhor começar tudo de novo! \n");
+        } else {
+            printf("inserido com sucesso! \n");
+        }
+    } 
+    printf("posições ocupadas até agora: %d\n", list->occupiedPositions);
+
+    startInsertion(list, content1);
+    printf("posições ocupadas até agora: %d\n", list->occupiedPositions);
+    
+    printf("\n");
+    printf("os dados inseridos foram: \n"); 
+
+    printf("%d \n", list->list[0].dataInteger);
+    printf("%s \n", list->list[0].dataString);
+    
+    printf("%d \n", list->list[1].dataInteger);
+    printf("%s \n", list->list[1].dataString);
+    
     freeList(list);
     return 0;
 }

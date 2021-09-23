@@ -4,10 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "createList.h"
+#include "createDestroyList.h"
 #include "main.h"
 
 List* createList();
+
 void freeList(List *list);
 
 #endif
