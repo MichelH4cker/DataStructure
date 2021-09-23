@@ -11,19 +11,20 @@ int error(List *list){
     return 0;
 }
 
-int startInsertion(List *list, struct Data contentX){
+void startInsertion(List *list, struct Data contentX){
     if (error(list) == 1) {
-        return 0;
+        printf("algo de errado não está certo, melhor começar tudo de novo! \n");
     } 
     
     for (int i = 0; i < list->occupiedPositions; i++){
-        printf("########## passei pelo for da inserção ##########\n");
         list->list[i + 1] = list->list[i];
         printf("%d \n", list->list[1].dataInteger);
     }
+
     list->list[0] = contentX;
     list->occupiedPositions++;
-    return 1;
+    printf("inserido com sucesso! \n");
+
     
 }
 

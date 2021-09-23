@@ -27,31 +27,14 @@ int main (){
     scanf("%d", &typeInsertion);
     printf("\n");
 
-    /*
-    int times = 0;
-    printf("\n====================================================\n");
-    printf("\n");
-    printf("Digite o número de dados que você deseja inserir: ")
-    scanf("%d", &times);
-    printf("\n====================================================\n");
-    printf("\n");
-    */
     struct Data content0 = {0, "oi"};
     struct Data content1 = {1, "fala"}; 
 
-    int report;
     if (typeInsertion == START){
-        report = startInsertion(list, content0);
-        if (report == 0) {
-            printf("algo de errado não está certo, melhor começar tudo de novo! \n");
-        } else {
-            printf("inserido com sucesso! \n");
-        }
-    } 
-    printf("posições ocupadas até agora: %d\n", list->occupiedPositions);
+        startInsertion(list, content0);
+        startInsertion(list, content1);
 
-    startInsertion(list, content1);
-    printf("posições ocupadas até agora: %d\n", list->occupiedPositions);
+    } 
     
     printf("\n");
     printf("os dados inseridos foram: \n"); 
