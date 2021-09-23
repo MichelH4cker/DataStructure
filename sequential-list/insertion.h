@@ -16,7 +16,7 @@ int error(List *list);
 
 int fullList(List *list);
 
-int startInsertion(List *list, struct Data content);
+void startInsertion(List *list, struct Data content);
 
 int endInsertion(List *list);
 
