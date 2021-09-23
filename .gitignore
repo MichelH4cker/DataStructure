@@ -1,0 +1,7 @@
+# OBJECTS 
+sequential-list/createDestroyList.o
+sequential-list/insertion.o
+sequential-list/main.o
+
+# EXECUTABLE
+sequential-list/les

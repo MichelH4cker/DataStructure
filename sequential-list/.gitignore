@@ -1,7 +1,0 @@
-# OBJECTS 
-createDestroyList.o
-insertion.o
-main.o
-
-# EXECUTABLE
-les
