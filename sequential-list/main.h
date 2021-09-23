@@ -3,10 +3,12 @@
 
 #define MAX_LIST 100 //tamanho máximo do vetor
 
+#include <stdio.h>
+#include <stdlib.h>
+
 struct Data {
     int dataInteger;
     char dataString[30];
-    float dataFloat;
 };
 
 

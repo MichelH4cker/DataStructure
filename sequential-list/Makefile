@@ -6,11 +6,14 @@ run :
 main.o : main.c
 	gcc -o main.o -c main.c
 
-createList.o : createList.c
-	gcc -o createList.o -c createList.c
+createDestroyList.o : createDestroyList.c
+	gcc -o createDestroyList.o -c createDestroyList.c
 
-les : main.o createList.o 
-	gcc -o les main.o createList.o 
+insertion.o : insertion.c
+	gcc -o insertion.o -c insertion.c
+
+les : main.o createDestroyList.o insertion.o
+	gcc -o les main.o createDestroyList.o insertion.o
 
 clean :
 	rm -rf *.exe *.o
