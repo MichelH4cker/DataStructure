@@ -1,6 +1,6 @@
 #include "insertion.h"
 
-int pushFront(List *head, struct Data inputData){
+int push(List *head, struct Data inputData){
     if (head == NULL){
         return 0;
     }

@@ -12,7 +12,7 @@ struct Data;
 /**
  * Insere no início da lista 
  */
-int pushFront(List *li, struct Data inputData);
+int push(List *li, struct Data inputData);
 
 void pop();
 
