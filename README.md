@@ -1,3 +1,3 @@
 # DataStructure 🎲
 
-A repository to do exercises and study the data structures. 
+A repository to do exercises and study data structures. 
