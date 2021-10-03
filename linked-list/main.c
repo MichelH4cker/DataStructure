@@ -2,9 +2,11 @@
 
 int main(){
     struct Data data1 = {1, "michel", 7.5};
-    List *head = createList();
+    struct Node *head = createList();
     
-    push(head, data1);
+    push(&head, data1);
+
+    showAllNodes(head);
 
     destroyList(head);
     return 0;

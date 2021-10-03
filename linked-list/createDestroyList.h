@@ -5,10 +5,9 @@
 #include <stdlib.h>
 
 #include "main.h"
+#include "insertion.h"
 
-typedef struct Node* List;
-
-List* createList();
+struct Node* createList();
 
 /**
  * 
@@ -16,6 +15,6 @@ List* createList();
  * destroy pointer head
  * destroy all nodes until null
  */
-void destroyList(List *li);
+void destroyList(struct Node *li);
 
 #endif
