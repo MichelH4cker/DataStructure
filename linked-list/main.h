@@ -14,8 +14,8 @@ struct Data {
 };
 
 typedef struct {
-    struct Node *next;
     struct Data data;
+    struct Node *next;
 } Node;
 
 
