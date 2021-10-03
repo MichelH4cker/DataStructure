@@ -1,0 +1,4 @@
+#all files with extension .o
+*.o
+
+ll
