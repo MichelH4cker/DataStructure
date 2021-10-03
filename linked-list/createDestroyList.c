@@ -1,15 +1,16 @@
 #include "main.h"
 #include "createDestroyList.h"
 
-List* createList(){
-    List *li = malloc(sizeof(List));
+struct Node* createList(){
+    struct Node* li = malloc(sizeof(struct Node));
+
     if (li != NULL){
-        *li = NULL;
+        li = NULL;
         return li;
     }
     
 }
 
-void destroyList(List *li){
+void destroyList(struct Node *li){
     free(li);
 }

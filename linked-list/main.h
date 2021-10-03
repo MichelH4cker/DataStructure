@@ -6,6 +6,7 @@
 
 #include "createDestroyList.h"
 #include "insertion.h"
+#include "information.h"
 
 struct Data {
     int dataInteger;
@@ -13,12 +14,9 @@ struct Data {
     float dataFloat;
 };
 
-typedef struct {
+struct Node {
     struct Data data;
     struct Node *next;
-} Node;
-
-
-typedef struct Node* List;
+};
 
 #endif

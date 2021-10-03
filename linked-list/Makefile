@@ -12,8 +12,11 @@ createDestroyList.o : createDestroyList.c
 insertion.o : insertion.c
 	gcc -o insertion.o -c insertion.c
 
-ll : main.o createDestroyList.o insertion.o
-	gcc -o ll main.o createDestroyList.o insertion.o
+information.o : information.c
+	gcc -o information.o -c information.c
+
+ll : main.o createDestroyList.o insertion.o information.o
+	gcc -o ll main.o createDestroyList.o insertion.o information.o
 
 clean :
 	rm -rf *.exe *.o

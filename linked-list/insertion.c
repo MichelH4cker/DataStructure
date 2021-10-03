@@ -1,12 +1,13 @@
 #include "insertion.h"
+#include "main.h"
 
-int push(List *head, struct Data inputData){
+int push(struct Node **head, struct Data inputData){
     if (head == NULL){
         return 0;
     }
 
-    Node *node;
-    node = malloc(sizeof(Node));
+    struct Node *node;
+    node = malloc(sizeof(struct Node));
     if (node == NULL){
         return 0;
     }

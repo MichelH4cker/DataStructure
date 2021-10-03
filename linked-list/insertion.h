@@ -8,11 +8,12 @@
 #include "createDestroyList.h"
 
 struct Data;
+struct Node;
 
 /**
  * Insere no início da lista 
  */
-int push(List *li, struct Data inputData);
+int push(struct Node **head, struct Data inputData);
 
 void pop();
 
