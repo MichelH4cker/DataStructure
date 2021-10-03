@@ -15,7 +15,10 @@ struct Node;
  */
 int push(struct Node **head, struct Data inputData);
 
-void pop();
+/**
+ * Insere no final da lista
+ */
+int append(struct Node **head, struct Data inputData);
 
 #endif
 
