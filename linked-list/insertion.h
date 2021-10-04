@@ -13,12 +13,17 @@ struct Node;
 /**
  * Insere no início da lista 
  */
-int push(struct Node **head, struct Data inputData);
+void push(struct Node **head, struct Data inputData);
 
 /**
  * Insere no final da lista
  */
-int append(struct Node **head, struct Data inputData);
+void append(struct Node **head, struct Data inputData);
+
+/**
+ * Insere de maneira ordenada
+ */
+void sortedInsert(struct Node **head, struct Data inputData);
 
 #endif
 
