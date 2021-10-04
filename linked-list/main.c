@@ -12,9 +12,9 @@ int main(){
     append(&head, data3);
     //sortedInsert(&head, data1);
     
-
     showAllNodes(head);
-
+    int lenList = len(head);
+    
     destroyList(head);
     return 0;
 }

@@ -14,3 +14,18 @@ void showAllNodes(struct Node *head){
     }
     
 }
+
+int len(struct Node *head){
+    int len = 0;
+    struct Node *node = head;
+    
+    if (head == NULL){
+        return 0;
+    }  
+    while (node != NULL){
+        node = node->next;
+        len++;
+    }
+    
+    return len;
+}
