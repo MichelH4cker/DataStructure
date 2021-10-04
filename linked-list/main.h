@@ -7,6 +7,7 @@
 #include "createDestroyList.h"
 #include "insertion.h"
 #include "information.h"
+#include "removal.h"
 
 struct Data {
     int dataInteger;
