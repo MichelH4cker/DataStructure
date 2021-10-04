@@ -1,7 +1,9 @@
 # OBJECTS 
-sequential-list/createDestroyList.o
-sequential-list/insertion.o
-sequential-list/main.o
+sequential-list/*.o
+linked-list/*.o
+trabalho-1/*.o
 
 # EXECUTABLE
 sequential-list/les
+linked-list/ll
+
