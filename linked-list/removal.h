@@ -11,7 +11,7 @@
 /**
  * Remove o primeiro nó da lista
  */
-//void removeFirstNode();
+void removeFirstNode(struct Node **head);
 
 
 /**

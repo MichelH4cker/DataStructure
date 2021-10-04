@@ -15,7 +15,8 @@ int main(){
     showAllNodes(head);
     //int lenList = len(head);
 
-    removeLastNode(&head);
+    //removeLastNode(&head);
+    removeFirstNode(&head);
     showAllNodes(head);
 
     destroyList(head);
