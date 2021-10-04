@@ -1,32 +1,33 @@
 #include "insertion.h"
 #include "main.h"
 
-int push(struct Node **head, struct Data inputData){
+void push(struct Node **head, struct Data inputData){
     struct Node *node;
     node = malloc(sizeof(struct Node));
 
     if (node == NULL || head == NULL){
-        return 0; //error 
+        return; //error 
     } else {
         node->data = inputData;     // novo nó recebe o dado de entrada
         node->next = (*head);       // próximo nó recebe o conteúdo antigo da head
         *head = node;               // conteúdo do ponteiro head recebe novo nó
 
-        return 1;
+        return;
     }
 
 }   
 
-int append(struct Node **head, struct Data inputData){
+void append(struct Node **head, struct Data inputData){
     struct Node *node;
     node = malloc(sizeof(struct Node));
     node->data = inputData;
     node->next = NULL;
 
     struct Node *lastNode = *head;
-
+    // falta checar se a lista está vazia
+    // ou seja, se não possui head
     if (node == NULL || head == NULL){
-        return 0;
+        return;
     } else {
         while (lastNode->next != NULL){
             lastNode = lastNode->next;
@@ -34,6 +35,35 @@ int append(struct Node **head, struct Data inputData){
 
         lastNode->next = node;
 
-        return 1;
+        return;
     }    
+}
+
+// crescent order
+void sortedInsert(struct Node **head, struct Data inputData){
+    struct Node *newNode;
+    newNode = malloc(sizeof(struct Node));
+    newNode->data = inputData;
+    
+    
+    struct Node *currentNode = *head;
+
+    // miss special case where only existis head
+    // or list didnt has any data
+    if (*head == NULL || (*head)->data.dataInteger >= newNode->data.dataInteger ){   
+        newNode->next = *head;
+        *head = newNode; 
+        return;
+    } else {
+        
+        currentNode = *head;
+        while (currentNode->next != NULL && currentNode->next->data.dataInteger < newNode->data.dataInteger){
+            
+            currentNode = currentNode->next;    
+        }
+        newNode->next = currentNode->next;
+        currentNode->next = newNode;
+    }
+
+    return;
 }
