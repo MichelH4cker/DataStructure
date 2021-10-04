@@ -13,8 +13,11 @@ int main(){
     //sortedInsert(&head, data1);
     
     showAllNodes(head);
-    int lenList = len(head);
-    
+    //int lenList = len(head);
+
+    removeLastNode(&head);
+    showAllNodes(head);
+
     destroyList(head);
     return 0;
 }

@@ -15,8 +15,11 @@ insertion.o : insertion.c
 information.o : information.c
 	gcc -o information.o -c information.c
 
-ll : main.o createDestroyList.o insertion.o information.o
-	gcc -o ll main.o createDestroyList.o insertion.o information.o
+removal.o : removal.c
+	gcc -o removal.o -c removal.c 
+
+ll : main.o createDestroyList.o insertion.o information.o removal.o
+	gcc -o ll main.o createDestroyList.o insertion.o information.o removal.o
 
 clean :
 	rm -rf *.exe *.o
