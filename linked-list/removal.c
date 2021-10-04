@@ -1,9 +1,15 @@
 #include "removal.h"
 
-/*
-void removeFirstNode(){
+void removeFirstNode(struct Node **head){
+    struct Node *node = *head;
+    
+    // verificar se lista está vazia
+    // verificar se o próximo é nulo
+    
+    free(*head);
+    *head = node->next;
 
-}*/
+}
 
 void removeLastNode(struct Node **head){
     struct Node *node = *head;
@@ -19,7 +25,7 @@ void removeLastNode(struct Node **head){
     previousNode->next = NULL;
 }
 
-/*
+
 void pop(){
 
-}*/
+}
