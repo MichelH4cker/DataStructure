@@ -21,9 +21,14 @@ void push(struct Node **head, struct Data inputData);
 void append(struct Node **head, struct Data inputData);
 
 /**
- * Insere de maneira ordenada
+ * Insere de maneira crescente
  */
-void sortedInsert(struct Node **head, struct Data inputData);
+void increasingInsertion(struct Node **head, struct Data inputData);
+
+/**
+ * Insere de maneira decrescente
+ */
+void descendingInsert(struct Node **head, struct Data inputData);
 
 #endif
 

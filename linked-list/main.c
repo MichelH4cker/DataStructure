@@ -7,12 +7,16 @@ int main(){
     struct Data data4 = {5, "ordenada", 3.14};
     //struct Node *head = createList(); // pointer to pointer
     struct Node *head = NULL;
-    push(&head, data1);
-    push(&head, data2);
-    push(&head, data3);
-    append(&head, data4);
-    //sortedInsert(&head, data1);
-    
+    //push(&head, data1);
+    //push(&head, data2);
+    //push(&head, data3);
+    //append(&head, data4);
+
+    //increasingInsertion(&head, data3);
+    //increasingInsertion(&head, data1);
+    //increasingInsertion(&head, data2);
+    //increasingInsertion(&head, data4);
+
     showAllNodes(head);
     //int lenList = len(head);
 
@@ -21,16 +25,12 @@ int main(){
    
     //struct Node *searched = search(&head, 7);
     
-    pop(&head, 7);
+    //pop(&head, 7);
     
-    showAllNodes(head);
-    destroyList(&head);
-
-    
+    destroyList(&head); 
     return 0;
 }
 
 /*
 1 - verificar se a lista está vazia nas funções
-2 - consertar a função search
 */

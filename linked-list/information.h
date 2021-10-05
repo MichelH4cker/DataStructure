@@ -25,4 +25,9 @@ int len(struct Node *head);
  */
 struct Node* search(struct Node **head, int key);
 
+/**
+ * Verifica se a lista está vazia
+ */
+int emptyList(struct Node **head);
+
 #endif

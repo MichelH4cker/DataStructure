@@ -42,7 +42,7 @@ void append(struct Node **head, struct Data inputData){
 }
 
 // crescent order
-void sortedInsert(struct Node **head, struct Data inputData){
+void increasingInsertion(struct Node **head, struct Data inputData){
     struct Node *newNode;
     newNode = malloc(sizeof(struct Node));
     newNode->data = inputData;
@@ -50,6 +50,30 @@ void sortedInsert(struct Node **head, struct Data inputData){
     struct Node *currentNode = *head;
 
     if (*head == NULL || (*head)->data.dataInteger >= newNode->data.dataInteger ){   
+        newNode->next = *head;
+        *head = newNode; 
+        return;
+    } else {
+        
+        currentNode = *head;
+        while (currentNode->next != NULL && currentNode->next->data.dataInteger < newNode->data.dataInteger){
+            
+            currentNode = currentNode->next;    
+        }
+        newNode->next = currentNode->next;
+        currentNode->next = newNode;
+        return;
+    }
+}
+
+void descendingInsert(struct Node **head, struct Data inputData){
+    struct Node *newNode;
+    newNode = malloc(sizeof(struct Node));
+    newNode->data = inputData;
+        
+    struct Node *currentNode = *head;
+
+    if (*head == NULL || (*head)->data.dataInteger <= newNode->data.dataInteger ){   
         newNode->next = *head;
         *head = newNode; 
         return;

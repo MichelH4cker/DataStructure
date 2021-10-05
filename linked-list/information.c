@@ -1,8 +1,11 @@
 #include "information.h"
 
 void showAllNodes(struct Node *head){
-    struct Node *newNode = head;    
+    if (emptyList(&head))
+        return;
     
+    struct Node *newNode = head;    
+
     int position = 1;
     while (newNode != NULL){
         printf("nó %d: \n", position);
@@ -19,9 +22,9 @@ int len(struct Node *head){
     int len = 0;
     struct Node *node = head;
     
-    if (head == NULL){
-        return 0;
-    }  
+    if (emptyList(&head))
+        return len;
+
     while (node != NULL){
         node = node->next;
         len++;
@@ -31,7 +34,6 @@ int len(struct Node *head){
 }
 
 struct Node* search(struct Node **head, int key){
-    //verifcação de lista vazia
     struct Node *node = *head;
     
     while (node != NULL){
@@ -45,4 +47,12 @@ struct Node* search(struct Node **head, int key){
     }
     node = NULL;
     return node;
+}
+
+int emptyList(struct Node **head){
+    if ((*head) == NULL || head == NULL){
+        return 1;
+    }
+    return 0;
+    
 }
