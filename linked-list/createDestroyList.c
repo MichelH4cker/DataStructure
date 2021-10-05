@@ -11,13 +11,28 @@ struct Node* createList(){
     
 }
 
-void destroyList(struct Node *head){
-    struct Node* node;
+//**head = struct Node
+void destroyList(struct Node **head){
+    struct Node *currentNode = *head;
+    struct Node *nextNode;
+    while (currentNode != NULL){
+        nextNode = currentNode->next;
+        free(currentNode);
+        currentNode = nextNode;
 
-    while (head != NULL){
-       node = head;
-       head = head->next;
-       free(node);
     }
-    free(node);
+    *head = NULL;
+    
 }
+
+
+/*
+struct node* tmp;
+
+   while (head != NULL)
+    {
+       tmp = head;
+       head = head->next;
+       free(tmp);
+    }
+*/
