@@ -80,7 +80,7 @@ void descendingInsert(struct Node **head, struct Data inputData){
     } else {
         
         currentNode = *head;
-        while (currentNode->next != NULL && currentNode->next->data.dataInteger < newNode->data.dataInteger){
+        while (currentNode->next != NULL && currentNode->next->data.dataInteger > newNode->data.dataInteger){
             
             currentNode = currentNode->next;    
         }
