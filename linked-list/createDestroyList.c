@@ -2,15 +2,22 @@
 #include "createDestroyList.h"
 
 struct Node* createList(){
-    struct Node* li = malloc(sizeof(struct Node));
+    struct Node* headList = malloc(sizeof(struct Node));
 
-    if (li != NULL){
-        li = NULL;
-        return li;
+    if (headList != NULL){
+        headList = NULL;
+        return headList;
     }
     
 }
 
-void destroyList(struct Node *li){
-    free(li);
+void destroyList(struct Node *head){
+    struct Node* node;
+
+    while (head != NULL){
+       node = head;
+       head = head->next;
+       free(node);
+    }
+    free(node);
 }

@@ -9,7 +9,8 @@ int main(){
     
     push(&head, data1);
     push(&head, data2);
-    append(&head, data3);
+    push(&head, data3);
+    append(&head, data4);
     //sortedInsert(&head, data1);
     
     showAllNodes(head);
@@ -26,10 +27,18 @@ int main(){
         printf("%d \n", searched->next->data.dataInteger);
 
     }*/
-    pop(&head, 1);
+    pop(&head, 3);
+    printf("====================== \n");
+
     showAllNodes(head);
 
     
     destroyList(head);
     return 0;
 }
+
+/*
+1 - consertar o destrói lista
+2 - verificar se a lista está vazia nas funções
+3 - consertar a função search
+*/
