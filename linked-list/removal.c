@@ -1,11 +1,11 @@
 #include "removal.h"
 
 void removeFirstNode(struct Node **head){
+    if (emptyList(head))
+        return;
+
     struct Node *node = *head;
-    
-    // verificar se lista está vazia
-    // verificar se o próximo é nulo
-    
+
     free(*head);
     *head = node->next;
 
@@ -14,8 +14,10 @@ void removeFirstNode(struct Node **head){
 void removeLastNode(struct Node **head){
     struct Node *node = *head;
     struct Node *previousNode;
-    // verificar se a lista está vazia
 
+    if (emptyList(head))
+        return;
+    
     while (node->next != NULL){
         previousNode = node;
         node = node->next;
@@ -29,6 +31,7 @@ void removeLastNode(struct Node **head){
 void pop(struct Node **head, int key){
     struct Node *node = *head;
     struct Node *previous = *head;
+
     // head possui a chave
     if (node != NULL && node->data.dataInteger == key){
         *head = node->next;
