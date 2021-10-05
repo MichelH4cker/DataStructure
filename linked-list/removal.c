@@ -26,6 +26,12 @@ void removeLastNode(struct Node **head){
 }
 
 
-void pop(){
+void pop(struct Node **head, int key){
+    struct Node *node = *head;
+    node = search(&node, key);
+    struct Node *deletedNode = node->next;
+
+    node->next = deletedNode->next;
+    free(deletedNode); 
 
 }

@@ -29,3 +29,20 @@ int len(struct Node *head){
     
     return len;
 }
+
+struct Node* search(struct Node **head, int key){
+    //verifcação de lista vazia
+
+    // o nó de retorno é sempre o anterior ao da chave
+    struct Node *node = *head; 
+    while (node->next != NULL){
+        if (node->next->data.dataInteger == key){
+            
+            return node;
+        }
+        
+        node = node->next;       
+    }
+    node = NULL;
+    return node;
+}

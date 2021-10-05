@@ -7,6 +7,7 @@
 #include "main.h"
 #include "createDestroyList.h"
 #include "insertion.h"
+#include "information.h"
 
 /**
  * Remove o primeiro nó da lista
@@ -22,6 +23,6 @@ void removeLastNode(struct Node **head);
 /**
  * Remove o nó especificado da lista
  */
-//void pop(struct Node **head, int keyIdentification);
+void pop(struct Node **head, int key);
 
 #endif

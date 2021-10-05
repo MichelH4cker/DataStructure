@@ -19,4 +19,10 @@ void showAllNodes(struct Node *head);
  */ 
 int len(struct Node *head);
 
+/**
+ * Retorna o nó anterior a
+ * chave requisitada
+ */
+struct Node* search(struct Node **head, int key);
+
 #endif

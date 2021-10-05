@@ -15,6 +15,6 @@ struct Node* createList();
  * destroy pointer head
  * destroy all nodes until null
  */
-void destroyList(struct Node *li);
+void destroyList(struct Node *head);
 
 #endif
