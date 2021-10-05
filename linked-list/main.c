@@ -8,20 +8,19 @@ int main(){
     //struct Node *head = createList(); // pointer to pointer
     struct Node *head = NULL;
     //push(&head, data1);
-    //push(&head, data2);
-    //push(&head, data3);
     //append(&head, data4);
 
+
     //increasingInsertion(&head, data3);
-    //increasingInsertion(&head, data1);
-    //increasingInsertion(&head, data2);
-    //increasingInsertion(&head, data4);
+    
+    descendingInsert(&head, data3);
+    descendingInsert(&head, data4);
+    descendingInsert(&head, data1);
+    descendingInsert(&head, data2);
+
 
     showAllNodes(head);
-    //int lenList = len(head);
 
-    //removeLastNode(&head);
-    //removeFirstNode(&head);
    
     //struct Node *searched = search(&head, 7);
     
