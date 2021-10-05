@@ -7,3 +7,5 @@ trabalho-1/*.o
 sequential-list/les
 linked-list/ll
 
+# ZIP
+linked-list/*.zip

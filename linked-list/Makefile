@@ -24,3 +24,6 @@ ll : main.o createDestroyList.o insertion.o information.o removal.o
 clean :
 	rm -rf *.exe *.o
 	clear
+
+zip :
+	zip linked-list.zip *.c *.h Makefile
