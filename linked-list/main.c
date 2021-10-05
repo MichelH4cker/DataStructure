@@ -29,7 +29,3 @@ int main(){
     destroyList(&head); 
     return 0;
 }
-
-/*
-1 - verificar se a lista está vazia nas funções
-*/
