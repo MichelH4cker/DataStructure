@@ -16,9 +16,20 @@ int main(){
     //int lenList = len(head);
 
     //removeLastNode(&head);
-    removeFirstNode(&head);
+    //removeFirstNode(&head);
+    
+    /*
+    struct Node *searched = search(&head, 3);
+    if (searched == NULL){
+        printf("é nulo \n");
+    } else {
+        printf("%d \n", searched->next->data.dataInteger);
+
+    }*/
+    pop(&head, 1);
     showAllNodes(head);
 
+    
     destroyList(head);
     return 0;
 }
