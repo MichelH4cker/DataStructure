@@ -28,10 +28,24 @@ void removeLastNode(struct Node **head){
 
 void pop(struct Node **head, int key){
     struct Node *node = *head;
-    node = search(&node, key);
-    struct Node *deletedNode = node->next;
+    struct Node *previous = *head;
+    // head possui a chave
+    if (node != NULL && node->data.dataInteger == key){
+        *head = node->next;
+        free(node);
+        return;
+    }
+    // head não possui a chave
+    // busca pelos nós
+    while (node != NULL && node->data.dataInteger != key){
+        previous = node;
+        node = node->next;
+    }
+    if (node == NULL){
+        return;
+    }
 
-    node->next = deletedNode->next;
-    free(deletedNode); 
-
+    previous->next = node->next;
+    free(node);
+    
 }

@@ -32,15 +32,15 @@ int len(struct Node *head){
 
 struct Node* search(struct Node **head, int key){
     //verifcação de lista vazia
-
-    // o nó de retorno é sempre o anterior ao da chave
-    struct Node *node = *head; 
-    while (node->next != NULL){
-        if (node->next->data.dataInteger == key){
-            
+    struct Node *node = *head;
+    
+    while (node != NULL){
+        //printf("entrou no while ");
+        if (node->data.dataInteger == key){
+            printf("passou no if \n");
             return node;
         }
-        
+
         node = node->next;       
     }
     node = NULL;

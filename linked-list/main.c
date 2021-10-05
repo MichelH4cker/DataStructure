@@ -5,8 +5,8 @@ int main(){
     struct Data data2 = {3, "amanda", 7.5};
     struct Data data3 = {7, "append", 2.5};
     struct Data data4 = {5, "ordenada", 3.14};
-    struct Node *head = createList();
-    
+    //struct Node *head = createList(); // pointer to pointer
+    struct Node *head = NULL;
     push(&head, data1);
     push(&head, data2);
     push(&head, data3);
@@ -18,27 +18,19 @@ int main(){
 
     //removeLastNode(&head);
     //removeFirstNode(&head);
+   
+    //struct Node *searched = search(&head, 7);
     
-    /*
-    struct Node *searched = search(&head, 3);
-    if (searched == NULL){
-        printf("é nulo \n");
-    } else {
-        printf("%d \n", searched->next->data.dataInteger);
-
-    }*/
-    pop(&head, 3);
-    printf("====================== \n");
-
+    pop(&head, 7);
+    
     showAllNodes(head);
+    destroyList(&head);
 
     
-    destroyList(head);
     return 0;
 }
 
 /*
-1 - consertar o destrói lista
-2 - verificar se a lista está vazia nas funções
-3 - consertar a função search
+1 - verificar se a lista está vazia nas funções
+2 - consertar a função search
 */
