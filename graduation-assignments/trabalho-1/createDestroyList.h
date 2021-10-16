@@ -7,6 +7,12 @@
 #include "createDestroyList.h"
 #include "main.h"
 
-struct Node* createList();
+struct Node;
+
+/**
+ * Desalocação de memória
+ */ 
+void destroyList(struct Node **head);
+
 
 #endif

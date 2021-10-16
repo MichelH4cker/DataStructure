@@ -18,3 +18,6 @@ trabalho : main.o createDestroyList.o insertion.o
 clean :
 	rm -rf *.exe *.o
 	clear
+
+zip :
+	zip trabalho-1.zip *.c *.h Makefile

@@ -44,11 +44,10 @@ void receiveInputs(struct Node **head, int typeInsertion){
         scanf("%f", &inputFloat);
         inputInt = inputFloat;
         if (inputInt == 0){
-
             return ; 
         } else {
             if (typeInsertion == 3){
-                descendingInsert(head,inputFloat);
+                descendingInsert(head, inputFloat);
             }
             else{ 
                 crescentInsert(head, inputFloat);
@@ -78,6 +77,7 @@ int main (void){
     //printf("\n### 1 for float \n### 0 for no float: \n=> %d <=\n", isFloat);
 
     showAllNodes(head, isFloat);
+    destroyList(&head);
 }
 
 /*
