@@ -22,9 +22,18 @@ struct Node {
 void receiveInputs(struct Node **head, int typeInsertion);
 
 /**
+ * Output:
+ * mostra todos os dados dentro dos nós
+ * @param head_ref
+ * @param isFloat
+ */ 
+void showAllNodes(struct Node *head_ref, int isFloat);
+
+/**
+ * 
  * 
  * 
  */ 
-void showAllNodes(struct Node *head_ref);
+int itsFloat(struct Node *head_ref);
 
 #endif
