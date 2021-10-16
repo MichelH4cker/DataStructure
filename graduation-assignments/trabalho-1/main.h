@@ -6,10 +6,25 @@
 
 #include "createDestroyList.h"
 #include "main.h"
+#include "insertion.h"
 
-typedef struct {
-    struct Node *PointerToNext;
+struct Node {
     float data;
-} Node;
+    struct Node *next;
+};
+
+
+/**
+ * 
+ * 
+ * 
+ */ 
+int receiveInputs(struct Node *array, int totalInputs);
+
+/**
+ * 
+ * 
+ */ 
+void showAllNodes(struct Node *array, int totalInputs);
 
 #endif

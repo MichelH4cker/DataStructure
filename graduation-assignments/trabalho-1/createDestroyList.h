@@ -7,8 +7,6 @@
 #include "createDestroyList.h"
 #include "main.h"
 
-typedef struct Node *List;
-
-List* createList();
+struct Node* createList();
 
 #endif

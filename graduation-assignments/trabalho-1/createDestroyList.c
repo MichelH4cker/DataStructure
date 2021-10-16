@@ -4,11 +4,11 @@
 #include "createDestroyList.h"
 #include "main.h"
 
-List* createList(){
-    List *li;
-    li = malloc(sizeof(*List));
+struct Node* createList(){
+    struct Node *li;
+    li = malloc(sizeof(struct Node));
     if (li != NULL){
-        *li = NULL; 
+        li = NULL; 
     }
     return li;
 }
@@ -17,6 +17,6 @@ void destroyList(){
 
 }
 
-void freeList(List *list){
+void freeList(struct Node *list){
     free(list);
 }

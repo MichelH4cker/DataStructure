@@ -7,8 +7,20 @@
 #include "createDestroyList.h"
 #include "main.h"
 
-typedef struct Node *List;
+struct Node;
 
-List* createList();
+/**
+ * 
+ * 
+ * 
+ */
+void descendingInsert(struct Node **head, float inputData);
+
+/**
+ * 
+ * 
+ * 
+ */ 
+void crescentInsert(struct Node **head, float inputData);
 
 #endif
