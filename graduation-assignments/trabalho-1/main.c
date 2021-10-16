@@ -1,41 +1,58 @@
 #include "main.h"
 
-int itsFloat(struct Node **head){
-    struct Node *currentNode = *head;
+int itsFloat(struct Node *head_ref){
+    struct Node *currentNode = head_ref;
+
+    float dataFloat;
+    int dataInt;
 
     while (currentNode != NULL){
-        float data = currentNode->data;
-        if ((data % 1) != 0){
-            return 1;
+        dataFloat = currentNode->data;
+        dataInt = dataFloat;
+        if (dataFloat - dataInt > 0){
+            return 1; // is float
         }
+
         currentNode = currentNode->next;
+        
     }
-    return 0;
+
+    return 0; //isn't float
+
 }
 
-void showAllNodes(struct Node *head_ref){
+void showAllNodes(struct Node *head_ref, int isFloat){
     struct Node *node = head_ref;    
 
     while (node != NULL){
-        printf("%0.1f ", node->data);
+        if (isFloat){
+            printf("%0.1f ", node->data);
 
+        } else{
+            printf("%0.0f ", node->data);
+        }
+        
         node = node->next;
     }
     
 }
     
 void receiveInputs(struct Node **head, int typeInsertion){
-    float input;
+    float inputFloat;
+    int   inputInt;
     for (int data = 0; ; data++){   // insert all values
-        scanf("%f", &input);
-        if (input == 0){
-            break;
+        scanf("%f", &inputFloat);
+        inputInt = inputFloat;
+        if (inputInt == 0){
+
+            return ; 
         } else {
-            if (typeInsertion == 3)
-                descendingInsert(head,input);
-            else 
-                crescentInsert(head, input);
-            
+            if (typeInsertion == 3){
+                descendingInsert(head,inputFloat);
+            }
+            else{ 
+                crescentInsert(head, inputFloat);
+            }
         }
     
     }
@@ -56,9 +73,11 @@ int main (void){
     for (int i = 0; i < totalInputs; i++){
         receiveInputs(&head, type);
     }
-    int itsFloat = itsFloat(&head);
-    printf("é um float? %d \n", itsFloat);
-    showAllNodes(head);
+
+    int isFloat = itsFloat(head);
+    //printf("\n### 1 for float \n### 0 for no float: \n=> %d <=\n", isFloat);
+
+    showAllNodes(head, isFloat);
 }
 
 /*
