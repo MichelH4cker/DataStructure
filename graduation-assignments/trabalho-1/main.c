@@ -1,14 +1,14 @@
 #include "main.h"
 
 void showAllNodes(struct Node **array, int totalInputs){
-    struct Node *currentNode;
-    printf("dentro da posicao zero do array, temos o float de %f \n", array[0]->next->data);
-    float ithInput;
+    printf("dentro da posicao zero do array, temos o float de %f \n", array[0]->data);
+    float ithInput = 1;
     printf("entrou no showAllNodes \n");
     for (int positionOnArray = 0; positionOnArray < totalInputs; positionOnArray++){
         printf("entrou no primeiro for! \n");
-        //*currentNode = array[positionOnArray]; // receive head_ref
-        for (int i = 0; ithInput != 0; i++){   // run all nodes
+        struct Node *currentNode = array[positionOnArray]; // receive head_ref
+        
+        for (int i = 0; ithInput != 0; i++){    // run all nodes
             printf("entrou no segundo for! \n");
             printf("valor do currentNode %f \n", currentNode->data);
             ithInput = (*currentNode).data;
