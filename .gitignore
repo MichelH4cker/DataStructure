@@ -1,11 +1,16 @@
 # OBJECTS 
 sequential-list/*.o
 linked-list/*.o
-trabalho-1/*.o
+graduation-assignments/trabalho-1/*.o
+graduation-assignments/test-1/*.o
 
 # EXECUTABLE
 sequential-list/les
 linked-list/ll
+graduation-assignments/trabalho-1/trabalho
+graduation-assignments/test-1/prova
 
 # ZIP
 linked-list/*.zip
+graduation-assignments/trabalho-1/*.zip
+graduation-assignments/test-1/*.zip
