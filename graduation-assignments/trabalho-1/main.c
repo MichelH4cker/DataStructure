@@ -1,10 +1,23 @@
 #include "main.h"
 
+int itsFloat(struct Node **head){
+    struct Node *currentNode = *head;
+
+    while (currentNode != NULL){
+        float data = currentNode->data;
+        if ((data % 1) != 0){
+            return 1;
+        }
+        currentNode = currentNode->next;
+    }
+    return 0;
+}
+
 void showAllNodes(struct Node *head_ref){
     struct Node *node = head_ref;    
 
     while (node != NULL){
-        printf("%.1f ", node->data);
+        printf("%0.1f ", node->data);
 
         node = node->next;
     }
@@ -43,7 +56,8 @@ int main (void){
     for (int i = 0; i < totalInputs; i++){
         receiveInputs(&head, type);
     }
-    
+    int itsFloat = itsFloat(&head);
+    printf("é um float? %d \n", itsFloat);
     showAllNodes(head);
 }
 
