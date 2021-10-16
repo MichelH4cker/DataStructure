@@ -23,4 +23,11 @@ void descendingInsert(struct Node **head, float inputData);
  */ 
 void crescentInsert(struct Node **head, float inputData);
 
+/**
+ * 
+ * 
+ * 
+ */ 
+void append(struct Node **head, float input);
+
 #endif

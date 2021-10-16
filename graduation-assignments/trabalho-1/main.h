@@ -19,12 +19,12 @@ struct Node {
  * 
  * 
  */ 
-int receiveInputs(struct Node *array, int totalInputs);
+struct Node* receiveInputs(struct Node **head);
 
 /**
  * 
  * 
  */ 
-void showAllNodes(struct Node *array, int totalInputs);
+void showAllNodes(struct Node **array, int totalInputs);
 
 #endif
