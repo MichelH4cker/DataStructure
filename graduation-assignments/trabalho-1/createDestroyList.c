@@ -4,19 +4,15 @@
 #include "createDestroyList.h"
 #include "main.h"
 
-struct Node* createList(){
-    struct Node *li;
-    li = malloc(sizeof(struct Node));
-    if (li != NULL){
-        li = NULL; 
+void destroyList(struct Node **head){
+    struct Node *currentNode = *head;
+    struct Node *nextNode;
+    while (currentNode != NULL){
+        nextNode = currentNode->next;
+        free(currentNode);
+        currentNode = nextNode;
+
     }
-    return li;
-}
-
-void destroyList(){
-
-}
-
-void freeList(struct Node *list){
-    free(list);
+    *head = NULL;
+    
 }

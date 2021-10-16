@@ -23,23 +23,25 @@ void crescentInsert(struct Node **head, float inputData){
     }
 }
 
-void descendingInsert(struct Node **head, float inputData){
+void descendingInsert(struct Node **head, float input){
     struct Node *newNode;
     newNode = malloc(sizeof(struct Node));
-    
-
+    newNode->data = input;
+        
     struct Node *currentNode = *head;
 
-    if (*head == NULL || (*head)->data <= newNode->data ){   
+    if (*head == NULL || (*head)->data <= newNode->data){   
         newNode->next = *head;
         *head = newNode; 
         return;
     } else {
         currentNode = *head;
+
         while (currentNode->next != NULL && currentNode->next->data > newNode->data){
             
             currentNode = currentNode->next;    
         }
+        
         newNode->next = currentNode->next;
         currentNode->next = newNode;
         return;
