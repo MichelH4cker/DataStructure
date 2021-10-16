@@ -1,19 +1,19 @@
 #include "insertion.h"
 
-void crescentInsert(struct Node **head, float inputData){
+void crescentInsert(struct Node **head_ref, float inputData){
     struct Node *newNode;
     newNode = malloc(sizeof(struct Node));
     newNode->data = inputData;
         
-    struct Node *currentNode = *head;
+    struct Node *currentNode = *head_ref;
 
-    if (*head == NULL || (*head)->data >= newNode->data){   
-        newNode->next = *head;
-        *head = newNode; 
+    if (*head_ref == NULL || (*head_ref)->data >= newNode->data){   
+        newNode->next = *head_ref;
+        *head_ref = newNode; 
         return;
     } else {
         
-        currentNode = *head;
+        currentNode = *head_ref;
         while (currentNode->next != NULL && currentNode->next->data < newNode->data){    
             currentNode = currentNode->next;    
         }
@@ -23,25 +23,25 @@ void crescentInsert(struct Node **head, float inputData){
     }
 }
 
-void descendingInsert(struct Node **head, float input){
+void descendingInsert(struct Node **head_ref, float input){
     struct Node *newNode;
     newNode = malloc(sizeof(struct Node));
     newNode->data = input;
         
-    struct Node *currentNode = *head;
+    struct Node *currentNode = *head_ref;
 
-    if (*head == NULL || (*head)->data <= newNode->data){   
-        newNode->next = *head;
-        *head = newNode; 
+    if (*head_ref == NULL || (*head_ref)->data <= newNode->data){   
+        newNode->next = *head_ref;
+        *head_ref = newNode; 
         return;
     } else {
-        currentNode = *head;
+        currentNode = *head_ref;
 
         while (currentNode->next != NULL && currentNode->next->data > newNode->data){
             
             currentNode = currentNode->next;    
         }
-        
+
         newNode->next = currentNode->next;
         currentNode->next = newNode;
         return;

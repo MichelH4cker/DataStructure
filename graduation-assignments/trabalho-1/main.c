@@ -1,3 +1,6 @@
+// NOME: MICHEL HECKER FARIA
+// NUSP: 12609690
+
 #include "main.h"
 
 int itsFloat(struct Node *head_ref){
@@ -43,8 +46,8 @@ void receiveInputs(struct Node **head, int typeInsertion){
     for (int data = 0; ; data++){   // insert all values
         scanf("%f", &inputFloat);
         inputInt = inputFloat;
-        if (inputInt == 0){
-            return ; 
+        if (inputFloat == 0){       // end input
+            break;
         } else {
             if (typeInsertion == 3){
                 descendingInsert(head, inputFloat);
@@ -63,18 +66,13 @@ int main (void){
 
     int totalInputs;
     scanf("%d", &totalInputs);
-
-    struct Node* array[totalInputs];
-    
-    //receive inputs
-    
+        
     struct Node *head = NULL;
     for (int i = 0; i < totalInputs; i++){
         receiveInputs(&head, type);
     }
 
     int isFloat = itsFloat(head);
-    //printf("\n### 1 for float \n### 0 for no float: \n=> %d <=\n", isFloat);
 
     showAllNodes(head, isFloat);
     destroyList(&head);

@@ -10,9 +10,11 @@
 struct Node;
 
 /**
- * Desalocação de memória
+ * Desalocação de memória 
+ * de toda lista
+ * @param head_ref primeiro nó da lista
  */ 
-void destroyList(struct Node **head);
+void destroyList(struct Node **head_ref);
 
 
 #endif
