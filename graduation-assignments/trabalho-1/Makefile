@@ -9,8 +9,11 @@ main.o : main.c
 createDestroyList.o : createDestroyList.c
 	gcc -o createDestroyList.o -c createDestroyList.c
 
-trabalho : main.o createDestroyList.o 
-	gcc -o trabalho main.o createDestroyList.o
+insertion.o : insertion.c
+	gcc -o insertion.o -c insertion.c
+
+trabalho : main.o createDestroyList.o insertion.o 
+	gcc -o trabalho main.o createDestroyList.o insertion.o
 
 clean :
 	rm -rf *.exe *.o

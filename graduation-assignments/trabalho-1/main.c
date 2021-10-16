@@ -1,40 +1,56 @@
 #include "main.h"
-#include "createDestroyList.h"
 
-int receiveInputs(float **arrayLists, int totalInputs){
-    float input;
-    for (int positionArray = 0; positionArray < totalInputs; positionArray++){ //run all lists
-        List* li = createList();
-        Node node;
-        li node;
-
-        for (int j = 0 ; input != 0; j++){ //run datas of each list
-
+void showAllNodes(struct Node *array, int totalInputs){
+    struct Node *currentNode;
+    float ithInput;
+    printf("entrou no showAllNodes \n");
+    for (int positionOnArray = 0; positionOnArray < totalInputs; positionOnArray++){
+        printf("entrou no primeiro for! \n");
+        *currentNode = array[positionOnArray]; // receive head_ref
+        for (int i = 0; ithInput != 0; i++){   // run all nodes
+            printf("entrou no segundo for! \n");
+            ithInput = (*currentNode).data;
+            printf("Input: %f \n", ithInput);
+            currentNode = (*currentNode).next;
         }
-        arrayLists[positionArray] = ;
+        
+    }
+    
+
+}
+
+int receiveInputs(struct Node *array, int totalInputs){
+    float input;
+    for (int positionOnArray = 0; positionOnArray < totalInputs; positionOnArray++){    // run all lists
+        struct Node *head = NULL;
+        for (int data = 0; ; data++){   // insert all values
+            scanf("%f", &input);
+            crescentInsert(&head, input);
+            printf("o input inserido foi %f \n", input);
+            if (input == 0){
+                array[positionOnArray] = *head;
+                break;
+            }
+            
+        }
+        
         
     }
 }
 
 int main (void){
-    float type;
-    scanf("%f", &type);
+    int type;
+    scanf("%d", &type);
 
-    float totalInputs;
-    scanf("%f", &totalInputs);
+    int totalInputs;
+    scanf("%d", &totalInputs);
 
-    float *arrayLists;
-    arrayLists = malloc(sizeof(Node) * totalInputs);
-
-    receiveInputs(&arrayLists, totalInputs);
-    //receive inputs
-    for (int positoinArray = 0; positoinArray < totalInputs; positoinArray++){
-        
-        
-    }
+    struct Node array[totalInputs];
     
-
-
+    //receive inputs
+    receiveInputs(array, totalInputs);
+    printf("\n %f \n\n", array[0].next->data);
+    showAllNodes(array, totalInputs);
 }
 
 /*
