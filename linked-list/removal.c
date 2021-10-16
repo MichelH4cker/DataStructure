@@ -48,7 +48,7 @@ void pop(struct Node **head, int key){
         return;
     }
 
-    previous->next = node->next;
+    
     free(node);
     
 }
