@@ -1,37 +1,28 @@
 #include "main.h"
 
-void showAllNodes(struct Node **array, int totalInputs){
-    printf("dentro da posicao zero do array, temos o float de %f \n", array[0]->data);
-    float ithInput = 1;
-    printf("entrou no showAllNodes \n");
-    for (int positionOnArray = 0; positionOnArray < totalInputs; positionOnArray++){
-        printf("entrou no primeiro for! \n");
-        struct Node *currentNode = array[positionOnArray]; // receive head_ref
-        
-        for (int i = 0; ithInput != 0; i++){    // run all nodes
-            printf("entrou no segundo for! \n");
-            printf("valor do currentNode %f \n", currentNode->data);
-            ithInput = (*currentNode).data;
-            printf("Input: %f \n", ithInput);
-            currentNode = (*currentNode).next;
-        }
-        
+void showAllNodes(struct Node *head_ref){
+    struct Node *node = head_ref;    
+
+    while (node != NULL){
+        printf("%.1f ", node->data);
+
+        node = node->next;
     }
     
-
 }
     
-struct Node* receiveInputs(struct Node **head){
+void receiveInputs(struct Node **head, int typeInsertion){
     float input;
-    struct Node *head_ref = *head;
     for (int data = 0; ; data++){   // insert all values
         scanf("%f", &input);
         if (input == 0){
-            append(&head_ref, input);
-            return head_ref;
+            break;
         } else {
-            crescentInsert(&head_ref, input);
-            printf("o input inserido foi %f \n", input);
+            if (typeInsertion == 3)
+                descendingInsert(head,input);
+            else 
+                crescentInsert(head, input);
+            
         }
     
     }
@@ -47,14 +38,13 @@ int main (void){
     struct Node* array[totalInputs];
     
     //receive inputs
-    for (int positionOnArray = 0; positionOnArray < totalInputs; positionOnArray++){
-        struct Node *head = NULL;
-        head = receiveInputs(&head);
-        array[positionOnArray] = head;
+    
+    struct Node *head = NULL;
+    for (int i = 0; i < totalInputs; i++){
+        receiveInputs(&head, type);
     }
     
-    printf("\n %f \n\n", array[0]->next->data);
-    showAllNodes(array, totalInputs);
+    showAllNodes(head);
 }
 
 /*

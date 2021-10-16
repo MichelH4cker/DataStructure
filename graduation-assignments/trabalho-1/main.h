@@ -19,12 +19,12 @@ struct Node {
  * 
  * 
  */ 
-struct Node* receiveInputs(struct Node **head);
+void receiveInputs(struct Node **head, int typeInsertion);
 
 /**
  * 
  * 
  */ 
-void showAllNodes(struct Node **array, int totalInputs);
+void showAllNodes(struct Node *head_ref);
 
 #endif
