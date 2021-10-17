@@ -15,14 +15,7 @@ struct Node;
  * @param headMain primeiro nó da lista principal
  * @param head primeir nó da lista secundária
  */ 
-void merge(struct Node **headMain, struct Node **head){
-
-/**
- * Insere de maneira decrescente
- * @param head_ref primeiro nó da lista
- * @param inputData valor a ser inserido na lista
- */
-void descendingInsert(struct Node **head_ref, float inputData);
+void merge(struct Node **headMain, struct Node **head);
 
 /**
  * Insere de maneira crescente
@@ -32,11 +25,27 @@ void descendingInsert(struct Node **head_ref, float inputData);
 void crescentInsert(struct Node **head_ref, float inputData);
 
 /**
+ * Insere de maneira decrescente
+ * @param head_ref primeiro nó da lista
+ * @param inputData valor a ser inserido na lista
+ */
+void descendingInsert(struct Node **head_ref, float inputData);
+
+
+/**
  * Insere o dado no último nó 
  * da lista 
  * @param head_ref primeiron nó da lista
  * @param inputData valor a ser inserido na lista
  */ 
-void append(struct Node **head_ref, struct Data inputData){
+void append(struct Node **head_ref, float inputData);
+
+
+/**
+ * 
+ * 
+ * 
+ */ 
+void push(struct Node **head, float inputData);
 
 #endif
