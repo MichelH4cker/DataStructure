@@ -49,11 +49,13 @@ void receiveInputs(struct Node **head, int typeInsertion){
         if (inputFloat == 0){       // end input
             break;
         } else {
-            if (typeInsertion == 3){
-                descendingInsert(head, inputFloat);
+            if (typeInsertion == 1){
+                append(head, inputFloat);
             }
-            else{ 
+            else if (typeInsertion == 2){ 
                 crescentInsert(head, inputFloat);
+            } else {
+                descendingInsert(head, inputFloat);
             }
         }
     
@@ -67,19 +69,20 @@ int main (void){
     int totalInputs;
     scanf("%d", &totalInputs);
         
-    struct Node *head = NULL;
-    for (int i = 0; i < totalInputs; i++){
+    struct Node arrayOfLists[totalInputs];        
+    for (int positionOnArray = 0; positionOnArray < totalInputs; positionOnArray++){
+        struct Node *head = NULL;
         receiveInputs(&head, type);
+        arrayOfLists[positionOnArray] = head;
     }
 
-    int isFloat = itsFloat(head);
+    //int isFloat = itsFloat(head);
 
-    showAllNodes(head, isFloat);
-    destroyList(&head);
+    //showAllNodes(head, isFloat);
+    //destroyList(&head);
 }
 
 /*
-
 ####### TIPOS DE ENTRADA LISTA #######
 
 1 - listas de dados que já estão ordenadas, sendo necessário 
