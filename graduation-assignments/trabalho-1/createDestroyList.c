@@ -7,6 +7,7 @@
 void destroyList(struct Node **head){
     struct Node *currentNode = *head;
     struct Node *nextNode;
+    
     while (currentNode != NULL){
         nextNode = currentNode->next;
         free(currentNode);
@@ -14,5 +15,4 @@ void destroyList(struct Node **head){
 
     }
     *head = NULL;
-    
 }

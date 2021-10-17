@@ -69,19 +69,22 @@ int main (void){
     int totalInputs;
     scanf("%d", &totalInputs);
         
-    struct Node arrayOfLists[totalInputs];        
-    for (int positionOnArray = 0; positionOnArray < totalInputs; positionOnArray++){
-        struct Node *head = NULL;
-        receiveInputs(&head, type);
-        arrayOfLists[positionOnArray] = head;
+    struct Node arrayOfLists[totalInputs];  
+    struct Node *main = NULL;
+
+    receiveInputs(&main, type);      
+    for (int i = 0; i < totalInputs; i++){
+        struct Node *other = NULL;
+        receiveInputs(&other, type);
+        merge(&main, &other);
     }
 
-    //int isFloat = itsFloat(head);
+    int isFloat = itsFloat(main);
+    showAllNodes(main, isFloat);
 
-    //showAllNodes(head, isFloat);
-    //destroyList(&head);
+    destroyList(&main);
+
 }
-
 /*
 ####### TIPOS DE ENTRADA LISTA #######
 

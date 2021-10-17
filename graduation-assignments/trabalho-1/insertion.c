@@ -1,7 +1,26 @@
 #include "insertion.h"
 
-void merge(){
+void merge(struct Node **headMain, struct Node **head){
+    struct Node *main   = *headMain;
+    struct Node *other  = *head;
+    struct Node *helperMain = main;
+    struct Node *helperOther = other;
 
+    while ((other != NULL) || (main != NULL)){
+        if (main->data <= other->data){
+            helperMain = main;
+            helperOther = other;
+            main = main->next;
+        } else {
+            helperOther = other;
+            other = other->next;
+
+            helperOther->next = main; 
+            helperMain->next = helperOther; 
+
+            main = helperMain;
+        }
+   }
 }
 
 void crescentInsert(struct Node **head_ref, float inputData){
