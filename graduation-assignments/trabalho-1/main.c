@@ -3,6 +3,18 @@
 
 #include "main.h"
 
+int len(struct Node *head){
+    int len = 0;
+    struct Node *node = head;
+    
+    while (node != NULL){
+        node = node->next;
+        len++;
+    }
+    
+    return len;
+}
+
 int itsFloat(struct Node *head_ref){
     struct Node *currentNode = head_ref;
 
@@ -28,6 +40,10 @@ void showAllNodes(struct Node *head_ref, int isFloat){
     struct Node *node = head_ref;    
 
     while (node != NULL){
+        if (node->data == 0){
+            break;
+        }
+        
         if (isFloat){
             printf("%0.1f ", node->data);
 
@@ -42,24 +58,19 @@ void showAllNodes(struct Node *head_ref, int isFloat){
     
 void receiveInputs(struct Node **head, int typeInsertion){
     float inputFloat;
-    int   inputInt;
-    for (int data = 0; ; data++){   // insert all values
-        scanf("%f", &inputFloat);
-        inputInt = inputFloat;
-        if (inputFloat == 0){       // end input
+    while (1) {
+        scanf("%f", &inputFloat);   
+        if (inputFloat == 0){
             break;
-        } else {
-            if (typeInsertion == 1){
-                append(head, inputFloat);
-            }
-            else if (typeInsertion == 2){ 
-                crescentInsert(head, inputFloat);
-            } else {
-                descendingInsert(head, inputFloat);
-            }
         }
-    
+        if (typeInsertion == 1){
+            append(head, inputFloat);
+        }
+        else{ 
+            crescentInsert(head, inputFloat);
+        } 
     }
+    append(head, 0);
 }
 
 int main (void){
@@ -69,22 +80,56 @@ int main (void){
     int totalInputs;
     scanf("%d", &totalInputs);
         
-    struct Node arrayOfLists[totalInputs];  
     struct Node *main = NULL;
 
-    receiveInputs(&main, type);      
     for (int i = 0; i < totalInputs; i++){
         struct Node *other = NULL;
-        receiveInputs(&other, type);
-        merge(&main, &other);
+        if (i == 0){
+            receiveInputs(&main, type); 
+            printf("minha lista e: \n");     
+            showAllNodes(main, 0);
+            printf("\n");
+            
+        } else {
+            receiveInputs(&other, type);
+            showAllNodes(main, 0);
+            printf("\n");
+            printf("\nmerge \n");
+            merge(&main, &other);
+        }        
+    }
+    
+    int isFloat = itsFloat(main);
+    struct Node *decrescent = NULL;
+
+    if (type == 3){
+        float input;
+        while (1){
+            if (main == NULL){
+                break;
+            }
+            input = main->data;
+            if (input == 0){
+                main = main->next;    
+                continue;
+            }
+            
+            push(&decrescent, input);
+            main = main->next;    
+
+        } 
+
+        showAllNodes(decrescent, isFloat);
+
+    } else {
+        showAllNodes(main, isFloat);
     }
 
-    int isFloat = itsFloat(main);
-    showAllNodes(main, isFloat);
-
     destroyList(&main);
+    destroyList(&decrescent);
 
 }
+
 /*
 ####### TIPOS DE ENTRADA LISTA #######
 

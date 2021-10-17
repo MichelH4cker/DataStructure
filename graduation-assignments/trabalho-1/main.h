@@ -13,6 +13,10 @@ struct Node {
     struct Node *next;  // ponteiro para próximo nó
 };
 
+/**
+ * 
+ */
+int len(struct Node *head); 
 
 /**
  * Verifica se pelo menos um número
@@ -40,5 +44,6 @@ void showAllNodes(struct Node *head_ref, int isFloat);
  * @param typeInsertion tipo da inserção que o usuário fará
  */ 
 void receiveInputs(struct Node **head, int typeInsertion);
+
 
 #endif
