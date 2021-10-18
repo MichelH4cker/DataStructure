@@ -35,16 +35,17 @@ void descendingInsert(struct Node **head_ref, float inputData);
 /**
  * Insere o dado no último nó 
  * da lista 
- * @param head_ref primeiron nó da lista
+ * @param head_ref primeiro nó da lista
  * @param inputData valor a ser inserido na lista
  */ 
 void append(struct Node **head_ref, float inputData);
 
 
 /**
- * 
- * 
- * 
+ * Insere o dado no primeiro nó
+ * da lista
+ * @param head primeiro nó da lista
+ * @param inputData valor a ser inserido na lista 
  */ 
 void push(struct Node **head, float inputData);
 

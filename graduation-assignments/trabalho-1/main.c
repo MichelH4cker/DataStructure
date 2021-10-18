@@ -86,15 +86,9 @@ int main (void){
         struct Node *other = NULL;
         if (i == 0){
             receiveInputs(&main, type); 
-            printf("minha lista e: \n");     
-            showAllNodes(main, 0);
-            printf("\n");
             
         } else {
             receiveInputs(&other, type);
-            showAllNodes(main, 0);
-            printf("\n");
-            printf("\nmerge \n");
             merge(&main, &other);
         }        
     }
