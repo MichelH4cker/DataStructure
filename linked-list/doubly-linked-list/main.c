@@ -14,9 +14,9 @@ int main (){
     printf("1 se estiver vazia, 0 se estiver cheia: \n");
     printf("resultado: %d \n", result);
 
-    //push(data1, &head);
-
-    //showAllNodes(&head);
+    push(data1, &head);
+    
+    showAllNodes(&head);
 
     return 0;
 }
