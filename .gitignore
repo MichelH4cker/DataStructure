@@ -1,6 +1,7 @@
 # OBJECTS 
 sequential-list/*.o
-linked-list/*.o
+linked-list/simple-linked-list/*.o
+linked-list/doubly-linked-list/*.o
 graduation-assignments/trabalho-1/*.o
 graduation-assignments/test-1/*.o
 
