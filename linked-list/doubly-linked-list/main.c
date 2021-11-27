@@ -9,14 +9,12 @@ int main (){
 
     struct Node *head = NULL; 
 
-    int result = emptyList(&head);
-
-    printf("1 se estiver vazia, 0 se estiver cheia: \n");
-    printf("resultado: %d \n", result);
-
     push(data1, &head);
-    
-    showAllNodes(&head);
+    push(data1, &head);
+    printf("vai dar merda no append \n");
+    append(data2, &head);
+
+    showAllNodes(head);
 
     return 0;
 }
