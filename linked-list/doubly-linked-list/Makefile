@@ -12,8 +12,11 @@ information.o : information.c
 insertion.o : insertion.c
 	gcc -o insertion.o -c insertion.c
 
-ll : main.o information.o insertion.o
-	gcc -o ll main.o information.o insertion.o
+deletion.o : deletion.c
+	gcc -o deletion.o -c deletion.c
+
+ll : main.o information.o insertion.o deletion.o
+	gcc -o ll main.o information.o insertion.o deletion.o
 
 clean :
 	rm -rf *.o
