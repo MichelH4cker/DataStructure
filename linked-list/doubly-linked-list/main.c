@@ -15,17 +15,18 @@ void destroyList(struct Node **head_ref){
 
 int main (){
     // DADOS PARA USO 
-    struct Data data1 = {12, "palavras", 7.5};
-    struct Data data2 = {5, "teste", 452.4};
-    struct Data data3 = {56, "vscode", 12.8};
+    struct Data data1 = {1, "palavras", 7.5};
+    struct Data data2 = {2, "teste", 452.4};
+    struct Data data3 = {3, "vscode", 12.8};
     // --- //
 
     struct Node *head = NULL; 
 
     push(data1, &head);
-    append(data2, &head);
-    append(data3, &head);
+    push(data2, &head);
+    push(data3, &head);
 
+    deleteSpecific(&head, 2);
     //deleteFirst(&head);
     //deleteLast(&head);
 

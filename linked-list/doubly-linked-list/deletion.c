@@ -25,16 +25,17 @@ void deleteSpecific(struct Node **head_ref, int nodeNumber){
     if (*head_ref == NULL) return;
     
     struct Node *currentNode = *head_ref;
-    
-    int cont = 0;
+    struct Node *lastNode;
+
+    int cont = 1;
     while (currentNode != NULL){
         if (cont == nodeNumber) {
-            // AINDA NÃO TERMINADO
-            // EXIGE PENSAMENTO
+            lastNode->next = currentNode->next;
+            currentNode = lastNode;
+            return;
         }
+        lastNode = currentNode;
         currentNode = currentNode->next;
         cont++;
     }
-    
-
 }
