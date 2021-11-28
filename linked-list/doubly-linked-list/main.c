@@ -23,8 +23,13 @@ int main (){
     struct Node *head = NULL; 
 
     push(data1, &head);
-    push(data1, &head);
     append(data2, &head);
+    append(data3, &head);
+
+    //deleteFirst(&head);
+    //deleteLast(&head);
+
+    printf("O número de nós da lista é: %d \n", len(head));
 
     showAllNodes(head);
 

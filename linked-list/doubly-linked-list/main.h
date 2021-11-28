@@ -6,6 +6,7 @@
 
 #include "insertion.h"
 #include "information.h"
+#include "deletion.h"
 
 struct Data {
     int dataInteger;

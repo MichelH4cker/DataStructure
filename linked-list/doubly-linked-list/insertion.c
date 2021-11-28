@@ -23,14 +23,12 @@ void append(struct Data data, struct Node **head_ref){
     struct Node *lastNode = *head_ref;
     struct Node *newNode;
     newNode = malloc(sizeof(struct Node));
-    if (newNode == NULL){ // não alocado
-        return; 
-    }
+    if (newNode == NULL) return; // não alocado 
 
-    newNode->data = data;       // newNode recebe dados
-    newNode->next = NULL;       // newNode aponta para nada
+    newNode->data = data;       
+    newNode->next = NULL;       
 
-    if ((*head_ref) == NULL){   // condição para lista vazia
+    if ((*head_ref) == NULL){   
         newNode->previous == NULL;
         (*head_ref) = newNode;
         return;
