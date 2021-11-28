@@ -42,5 +42,4 @@ void append(struct Data data, struct Node **head_ref){
 
     lastNode->next = newNode;
     newNode->previous = lastNode;
-
 } 
