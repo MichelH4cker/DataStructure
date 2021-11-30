@@ -6,7 +6,7 @@
    -2: Lista ordenada em Y, depois em X e depois em Z (em caso de empate> x -> y -> z)
    -3: Lista ordenada em Z, depois em X e depois em Y (em caso de empate> x -> y -> z)
    -4: Lista não ordenada com inserção no início
-   -5: Lista não ordenada com inserçã no final 
+   -5: Lista não ordenada com inserção no final 
  * @version 0.1
  * @date 2021-12-14
  * @copyright Copyright (c) 2021
@@ -28,8 +28,8 @@ void destroyList(struct Node **head_ref){
 }
 
 int main () {
-
-
+    
+    // call push and append functions
 
     return 0;
 }
