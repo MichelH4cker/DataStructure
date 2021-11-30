@@ -22,11 +22,15 @@ int main (){
 
     struct Node *head = NULL; 
 
-    push(data1, &head);
-    push(data2, &head);
-    push(data3, &head);
+    sortedInsert(data3, &head);
+    sortedInsert(data2, &head);
+    sortedInsert(data1, &head);
 
-    deleteSpecific(&head, 2);
+    //push(data1, &head);
+    //push(data2, &head);
+    //push(data3, &head);
+
+    //deleteSpecific(&head, 2);
     //deleteFirst(&head);
     //deleteLast(&head);
 
