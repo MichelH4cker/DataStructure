@@ -15,11 +15,17 @@ struct Node;
 void push(struct Data data, struct Node **head_ref);
 
 /**
- * @brief insere dados do tipo Data (struct)
- * no fim da lista encadead dupla
- * @param parameter-name description
+ * @brief insere dados do tipo Data (struct) no fim da lista encadeada dupla
+ * @param data struct Data com dados integer, char e float
  * @param head_ref struct Node que aponta para o primeiro nó da lista encadeada dupla
  */
 void append(struct Data data, struct Node **head_ref);
+
+/**
+ * @brief insere dados do tipo Data (struct) no fim da lista encadeada dupla. Observação importante: essa função está ordenando os dados por meio dos valores dos tipos inteiros
+ * @param data struct Data com dados integer, char e float
+ * @param head_ref struct Node que aponta para o primeiro nó da lista encadeada dupla
+ */
+void sortedInsert(struct Data data, struct Node **head_ref);
 
 #endif
