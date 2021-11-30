@@ -13,7 +13,7 @@ void destroyList(struct Node **head_ref){
     *head_ref = NULL;
 }
 
-int main (){
-
+int main () {
+    
     return 0;
 }

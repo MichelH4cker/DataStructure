@@ -3,15 +3,18 @@ sequential-list/*.o
 linked-list/simple-linked-list/*.o
 linked-list/doubly-linked-list/*.o
 graduation-assignments/trabalho-1/*.o
+graduation-assignments/trabalho-2/*.o
 graduation-assignments/test-1/*.o
 
 # EXECUTABLE
 sequential-list/les
 linked-list/ll
 graduation-assignments/trabalho-1/trabalho
+graduation-assignments/trabalho-2/trabalho
 graduation-assignments/test-1/prova
 
 # ZIP
 linked-list/*.zip
 graduation-assignments/trabalho-1/*.zip
+graduation-assignments/trabalho-2/*.zip
 graduation-assignments/test-1/*.zip
