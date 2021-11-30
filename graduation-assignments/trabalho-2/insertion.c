@@ -1,3 +1,5 @@
+#include "insertion.h"
+
 void push(struct Node **head_ref, struct Data data){
     struct Node *newNode;
     newNode = malloc(sizeof(struct Node));

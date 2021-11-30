@@ -4,10 +4,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Data {
-  //dados 3d  
+#include "insertion.h"
+#include "commands.h"
+
+struct RGB {
+    int red;
+    int green;
+    int blue;
 };
 
+struct Coordinate {
+    float x;
+    float y;
+    float z;
+};
+
+struct Data {
+    struct Coordinate coordinate;
+    struct RGB rgb;
+    int ID;
+};
 
 struct Node {
     struct Data data;
