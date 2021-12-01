@@ -28,8 +28,14 @@ void destroyList(struct Node **head_ref){
 }
 
 int main () {
+    char input[100];
+    // printf("digite a entrada \n");
+    // readCommand();
+
+    struct Node *headNonOrdered;
+    readFile(&headNonOrdered);
     
-    // call push and append functions
+    li(headNonOrdered);
 
     return 0;
 }
