@@ -1,7 +1,8 @@
 #include "file.h"
 
-void readFileAndPush(struct Node **headNonOrdered_ref){
-    struct Node *newHead = *headNonOrdered_ref;
+void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **headNonOrderedAppend_ref){
+    struct Node *newHeadPush = *headNonOrderedPush_ref;
+    struct Node *newHeadAppend = *headNonOrderedAppend_ref;
 
     FILE *fp;
     fp = fopen("dados3d.txt", "r");
@@ -15,12 +16,14 @@ void readFileAndPush(struct Node **headNonOrdered_ref){
             break;
         }
         else {
-            push(&newHead, data);
+            push(&newHeadPush, data);
+            append(&newHeadAppend, data);
         }
-        printf("%f \n", newHead->data.coordinate.x);
+        //printf("%f \n", newHead->data.coordinate.x);
     }
 
     fclose(fp);
 
-    *headNonOrdered_ref = newHead;
+    *headNonOrderedPush_ref = newHeadPush;
+    *headNonOrderedAppend_ref = newHeadAppend;
 }

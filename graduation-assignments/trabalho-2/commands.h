@@ -11,6 +11,8 @@ struct Coordinate;
 struct Data;
 struct Node;
 
+void showAllNodes(struct Node **head_ref);
+
 /**
  * @brief Listar todos dados da lista ordenada por X (X depois Y depois Z) 
  * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadead dupla
@@ -31,15 +33,15 @@ void lz(struct Node **head_ref);
 
 /**
  * @brief Listar todos dados da lista com inserção NÃO ordenada, inserindo dados no início da lista
- * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadead dupla
+ * @param head_ref Nó cabeçalho da lista, ou seja, o primeiro nó da lista encadeada dupla
  */
 void li(struct Node *head_ref);
 
 /**
  * @brief Listar todos dados da lista com inserção NÃO ordenada, inserindo dados no final da lista
- * @param
+ * @param head_ref Nó cabeçalho da lista, ou seja, o primeiro nó da lista encadeada dupla
  */
-void lf();
+void lf(struct Node *head_ref);
 
 /**
  * @brief Exibir o total de nodos acessados nas inserções nas listas LX,LI,LF
