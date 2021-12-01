@@ -28,21 +28,26 @@ void destroyList(struct Node **head_ref){
 }
 
 int main () {
-    char input[100];
-    // printf("digite a entrada \n");
-    // readCommand();
-
     struct Node *headNonOrderedPush = NULL;
     struct Node *headNonOrderedAppend = NULL;
-    // headNonOrdered->previous = NULL;
+    struct Node *headOrdered = NULL;
 
-    readAndStorageFile(&headNonOrderedPush, &headNonOrderedAppend);
-    
+    int axis = 0;
+
+    readAndStorageFile(&headNonOrderedPush, &headNonOrderedAppend, &headOrdered, axis);
+
     printf("inserção com push: \n");
     li(headNonOrderedPush);
     printf("====================== \n");
     printf("inserção com append: \n");
     lf(headNonOrderedAppend);
+    printf("====================== \n");
+    printf("inserção com x ordenado: \n");
+    lx(headOrdered);
+
+    destroyList(&headNonOrderedPush);
+    destroyList(&headNonOrderedAppend);
+    destroyList(&headOrdered);
 
     return 0;
 }

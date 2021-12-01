@@ -1,9 +1,6 @@
 #ifndef __COMMANDS_H__
 #define __COMMANDS_H__
 
-#define TRUE 1;
-#define FALSE 0;
-
 #include "main.h"
 
 struct RGB;
@@ -17,19 +14,19 @@ void showAllNodes(struct Node **head_ref);
  * @brief Listar todos dados da lista ordenada por X (X depois Y depois Z) 
  * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadead dupla
  */
-void lx(struct Node **head_ref);
+void lx(struct Node *head_ref);
 
 /**
  * @brief Listar todos dados da lista ordenada por Y (Y depois X depois Z)
  * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadead dupla
  */
-void ly(struct Node **head_ref);
+void ly(struct Node *head_ref);
 
 /**
  * @brief Listar todos dados da lista ordenada por Z (Z depois X depois Y)
  * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadead dupla
  */
-void lz(struct Node **head_ref);
+void lz(struct Node *head_ref);
 
 /**
  * @brief Listar todos dados da lista com inserção NÃO ordenada, inserindo dados no início da lista

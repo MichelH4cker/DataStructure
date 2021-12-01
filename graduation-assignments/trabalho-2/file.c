@@ -1,8 +1,9 @@
 #include "file.h"
 
-void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **headNonOrderedAppend_ref){
+void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **headNonOrderedAppend_ref, struct Node **headOrdered_ref, int axis){
     struct Node *newHeadPush = *headNonOrderedPush_ref;
     struct Node *newHeadAppend = *headNonOrderedAppend_ref;
+    struct Node *newHeadOrdered = *headNonOrderedAppend_ref;
 
     FILE *fp;
     fp = fopen("dados3d.txt", "r");
@@ -11,13 +12,14 @@ void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **head
     struct Data data;
 
     while (fp != NULL){
-        fscanf(fp, "%f %f %f %d %d %d %d", &data.coordinate.x, &data.coordinate.y, &data.coordinate.z, &data.rgb.red, &data.rgb.green, &data.rgb.blue, &data.ID);
+        fscanf(fp, "%f %f %f %d %d %d %d", &data.coordinate[0], &data.coordinate[1], &data.coordinate[2], &data.rgb.red, &data.rgb.green, &data.rgb.blue, &data.ID);
         if (data.ID == -1){
             break;
         }
         else {
             push(&newHeadPush, data);
             append(&newHeadAppend, data);
+            sortedInsert(&newHeadOrdered, data, axis);
         }
         //printf("%f \n", newHead->data.coordinate.x);
     }
@@ -26,4 +28,5 @@ void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **head
 
     *headNonOrderedPush_ref = newHeadPush;
     *headNonOrderedAppend_ref = newHeadAppend;
+    *headOrdered_ref = newHeadOrdered;
 }
