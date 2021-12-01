@@ -28,11 +28,11 @@ void destroyList(struct Node **head_ref){
 }
 
 int main () {
+    int axis = whichAxis();
+
     struct Node *headNonOrderedPush = NULL;
     struct Node *headNonOrderedAppend = NULL;
     struct Node *headOrdered = NULL;
-
-    int axis = 0;
 
     readAndStorageFile(&headNonOrderedPush, &headNonOrderedAppend, &headOrdered, axis);
 
@@ -42,7 +42,7 @@ int main () {
     printf("inserção com append: \n");
     lf(headNonOrderedAppend);
     printf("====================== \n");
-    printf("inserção com x ordenado: \n");
+    printf("inserção com eixo digitado ordenado: \n");
     lx(headOrdered);
 
     destroyList(&headNonOrderedPush);
