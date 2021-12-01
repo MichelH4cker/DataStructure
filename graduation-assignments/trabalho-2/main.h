@@ -3,9 +3,9 @@
 
 #define TRUE 1;
 #define FALSE 0;
-#define X 1;
-#define Y 2;
-#define Z 3;
+#define X 1
+#define Y 2
+#define Z 3
 
 #include <stdio.h>
 #include <stdlib.h>
