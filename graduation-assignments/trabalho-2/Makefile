@@ -12,8 +12,11 @@ insertion.o : insertion.c
 commands.o : commands.c
 	gcc -o commands.o -c commands.c
 
-trabalho : main.o insertion.o commands.o
-	gcc -o trabalho main.o insertion.o commands.o
+file.o : file.c
+	gcc -o file.o -c file.c
+
+trabalho : main.o insertion.o commands.o file.o
+	gcc -o trabalho main.o insertion.o commands.o file.o
 
 clean : 
 	rm -rf *.o

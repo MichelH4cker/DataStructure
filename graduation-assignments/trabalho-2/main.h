@@ -6,17 +6,18 @@
 
 #include "insertion.h"
 #include "commands.h"
-
-struct RGB {
-    int red;
-    int green;
-    int blue;
-};
+#include "file.h"
 
 struct Coordinate {
     float x;
     float y;
     float z;
+};
+
+struct RGB {
+    int red;
+    int green;
+    int blue;
 };
 
 struct Data {
