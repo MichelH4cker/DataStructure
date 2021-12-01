@@ -18,6 +18,18 @@ void lx(struct Node *head_ref){
     showAllNodes(&head_ref);
 }
 
+void ly(struct Node *head_ref){
+    if (head_ref == NULL) return;
+    
+    showAllNodes(&head_ref);
+}
+
+void lz(struct Node *head_ref){
+    if (head_ref == NULL) return;
+    
+    showAllNodes(&head_ref);
+}
+
 void li(struct Node *head_ref){
     if (head_ref == NULL) return;
     

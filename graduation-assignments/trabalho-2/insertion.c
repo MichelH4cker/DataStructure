@@ -68,3 +68,9 @@ void sortedInsert(struct Node **head_ref, struct Data data,int axis){
         currentNode->next = newNode;
     }   
 }
+
+/*
+1 2 3 4 5 6
+8 2 5 1 3 6
+9 8 5 3 0 1
+*/

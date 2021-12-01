@@ -32,7 +32,7 @@ int main () {
     struct Node *headNonOrderedAppend = NULL;
     struct Node *headOrdered = NULL;
 
-    int axis = 2;
+    int axis = 0;
 
     readAndStorageFile(&headNonOrderedPush, &headNonOrderedAppend, &headOrdered, axis);
 
@@ -47,6 +47,7 @@ int main () {
 
     destroyList(&headNonOrderedPush);
     destroyList(&headNonOrderedAppend);
+    destroyList(&headOrdered);
 
     return 0;
 }
