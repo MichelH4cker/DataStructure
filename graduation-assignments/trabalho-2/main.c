@@ -32,10 +32,17 @@ int main () {
     // printf("digite a entrada \n");
     // readCommand();
 
-    struct Node *headNonOrdered;
-    readFileAndPush(&headNonOrdered);
+    struct Node *headNonOrderedPush = NULL;
+    struct Node *headNonOrderedAppend = NULL;
+    // headNonOrdered->previous = NULL;
+
+    readAndStorageFile(&headNonOrderedPush, &headNonOrderedAppend);
     
-    li(headNonOrdered);
+    printf("inserção com push: \n");
+    li(headNonOrderedPush);
+    printf("====================== \n");
+    printf("inserção com append: \n");
+    lf(headNonOrderedAppend);
 
     return 0;
 }
