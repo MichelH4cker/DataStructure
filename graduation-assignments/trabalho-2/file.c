@@ -1,9 +1,6 @@
 #include "file.h"
 
-#define TRUE 1;
-#define FALSE 0;
-
-void readFile(struct Node **headNonOrdered_ref){
+void readFileAndPush(struct Node **headNonOrdered_ref){
     struct Node *newHead = *headNonOrdered_ref;
 
     FILE *fp;
@@ -22,7 +19,6 @@ void readFile(struct Node **headNonOrdered_ref){
         }
         printf("%f \n", newHead->data.coordinate.x);
     }
-
 
     fclose(fp);
 

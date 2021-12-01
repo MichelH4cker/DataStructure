@@ -1,6 +1,9 @@
 #ifndef __COMMANDS_H__
 #define __COMMANDS_H__
 
+#define TRUE 1;
+#define FALSE 0;
+
 #include "main.h"
 
 struct RGB;

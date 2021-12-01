@@ -33,7 +33,7 @@ int main () {
     // readCommand();
 
     struct Node *headNonOrdered;
-    readFile(&headNonOrdered);
+    readFileAndPush(&headNonOrdered);
     
     li(headNonOrdered);
 
