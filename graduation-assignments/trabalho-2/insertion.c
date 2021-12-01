@@ -41,3 +41,30 @@ void append(struct Node **head_ref, struct Data data){
     lastNode->next = newNode;
     newNode->previous = lastNode;
 }
+
+void sortedInsert(struct Node **head_ref, struct Data data,int axis){
+    struct Node *lastNode = *head_ref;
+    struct Node *currentNode = *head_ref;
+    struct Node *newNode;
+
+    newNode = malloc(sizeof(struct Node));
+    if (newNode == NULL) return;
+
+    newNode->data = data;
+    
+    if ((*head_ref) == NULL){
+        *head_ref = newNode;
+    } else if ((*head_ref)->data.coordinate[axis] >= newNode->data.coordinate[axis]) { //cabeçalho já é o maior
+        (*head_ref)->previous = newNode;
+        newNode->next = *head_ref;
+        *head_ref = newNode;
+    } else {
+        currentNode = *head_ref;
+
+        while (currentNode->next != NULL && currentNode->next->data.coordinate[axis] < newNode->data.coordinate[axis]) {
+            currentNode = currentNode->next;
+        }
+        newNode->next = currentNode->next;
+        currentNode->next = newNode;
+    }   
+}
