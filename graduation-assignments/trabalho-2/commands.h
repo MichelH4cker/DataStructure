@@ -8,6 +8,10 @@ struct Coordinate;
 struct Data;
 struct Node;
 
+/**
+ * @brief Lista todos os nós da lista passada como parâmetro
+ * @param head_ref Nó cabeçalho da lista, ou seja, priemiro nó da lista encadeada dupla
+ */
 void showAllNodes(struct Node **head_ref);
 
 /**
@@ -18,13 +22,13 @@ void lx(struct Node *head_ref);
 
 /**
  * @brief Listar todos dados da lista ordenada por Y (Y depois X depois Z)
- * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadead dupla
+ * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadeada dupla
  */
 void ly(struct Node *head_ref);
 
 /**
  * @brief Listar todos dados da lista ordenada por Z (Z depois X depois Y)
- * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadead dupla
+ * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadeada dupla
  */
 void lz(struct Node *head_ref);
 

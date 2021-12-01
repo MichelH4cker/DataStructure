@@ -1,5 +1,18 @@
 #include "file.h"
 
+int whichAxis(){
+    char command[3];
+    scanf("%s", command);
+
+    if (strcmp(command, "lx") == 0){
+        return 0;
+    } else if (strcmp(command, "ly") == 0) {
+        return 1;
+    } else {
+        return 2;
+    }
+}
+
 void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **headNonOrderedAppend_ref, struct Node **headOrdered_ref, int axis){
     struct Node *newHeadPush = *headNonOrderedPush_ref;
     struct Node *newHeadAppend = *headNonOrderedAppend_ref;
@@ -21,7 +34,6 @@ void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **head
             append(&newHeadAppend, data);
             sortedInsert(&newHeadOrdered, data, axis);
         }
-        //printf("%f \n", newHead->data.coordinate.x);
     }
 
     fclose(fp);
