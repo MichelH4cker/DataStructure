@@ -1,42 +1,44 @@
 #include "insertion.h"
 
-int switchAxis(int axis){
-    if (axis == X){
-        return Y;     
-    } else if (axis == Y){
+int switchAxis(int mainAxis, int currentAxis){
+    if (mainAxis == X){
+        if (currentAxis == X){
+            return Y;
+        } 
         return Z;
+             
+    } else if (mainAxis == Y){
+        if (currentAxis == Y){
+            return X;
+        }
+        return Z;
+        
     } else {
-        return X;
+        if (currentAxis == Z){
+            return X;
+        }
+        return Y;
     }
-    
 }
 
-void hierarchyOfAxis(struct Node **newNode_ref, struct Node **currentNode_ref, int axis){
-    printf("chegou nó atual com eixo x %f \n", (*currentNode_ref)->data.coordinate[axis]);
+void hierarchyOfAxis(struct Node **newNode_ref, struct Node **currentNode_ref, int mainAxis, int currentAxis){
 
     struct Node *currentNode = *currentNode_ref;
     struct Node *newNode = *newNode_ref;
 
     if (currentNode == NULL) return;
     // quando entrar nessa função, não sabemos se o nó atual é maior ou igual ao próximo nó, precisa verificar
-    if (currentNode->data.coordinate[axis] == currentNode->next->data.coordinate[axis]){ //verifica se nó atual é igual ao próximo nó
-        printf("entrou no primeiro if \n");
-        printf("=================== \n");
-        axis = switchAxis(axis);
-        hierarchyOfAxis(&newNode, &currentNode, axis);
-    } else if (currentNode->next->data.coordinate[axis] > currentNode->data.coordinate[axis]) {
+    if (currentNode->data.coordinate[currentAxis] == currentNode->next->data.coordinate[currentAxis]){ //verifica se nó atual é igual ao próximo nó
+        currentAxis = switchAxis(mainAxis, currentAxis);
+        hierarchyOfAxis(&newNode, &currentNode, mainAxis, currentAxis);
+
+    } else if (currentNode->next->data.coordinate[currentAxis] > currentNode->data.coordinate[currentAxis]) {
         newNode->next = currentNode->next;
         currentNode->next = newNode;
 
-        printf("a coordenada atual é %f, enquanto que a próxima é %f \n", currentNode->data.coordinate[axis], currentNode->next->data.coordinate[axis]);
-        printf("entrou no segundo if \n");
-        printf("=================== \n");
     } else {
         newNode->next = currentNode->next;
         currentNode = newNode;
-        
-        printf("entrou no terceiro if \n");
-        printf("=================== \n");
     }
 }
 
@@ -82,9 +84,11 @@ void append(struct Node **head_ref, struct Data data){
     newNode->previous = lastNode;
 }
 
-void sortedInsert(struct Node **head_ref, struct Data data, int axis){
+void sortedInsert(struct Node **head_ref, struct Data data, int mainAxis){
     struct Node *currentNode = *head_ref;
     struct Node *newNode;
+
+    int currentAxis = mainAxis;
 
     newNode = malloc(sizeof(struct Node));
     if (newNode == NULL) return;
@@ -93,19 +97,19 @@ void sortedInsert(struct Node **head_ref, struct Data data, int axis){
     
     if ((*head_ref) == NULL){ //cabeça vazia
         *head_ref = newNode;
-    } else if ((*head_ref)->data.coordinate[axis] >= newNode->data.coordinate[axis]) {  //cabeçalho já é o maior
+    } else if ((*head_ref)->data.coordinate[mainAxis] >= newNode->data.coordinate[mainAxis]) {  //cabeçalho já é o maior
         (*head_ref)->previous = newNode;
         newNode->next = *head_ref;
         *head_ref = newNode;
     } else {
         currentNode = *head_ref;
 
-        while (currentNode->next != NULL && currentNode->next->data.coordinate[axis] < newNode->data.coordinate[axis]) {
+        while (currentNode->next != NULL && currentNode->next->data.coordinate[mainAxis] < newNode->data.coordinate[mainAxis]) {
             currentNode = currentNode->next;
         }
+
         // ao sair do nó o próximo nó é nulo
         // ao sair do while, sabemos que o próximo nó é maior OU igual ao ao nó atual
-        printf("vai entrar nó com eixo igual a: %f \n", currentNode->data.coordinate[axis]);
 
         if (currentNode->next == NULL){
             newNode->next = currentNode->next;
@@ -113,22 +117,7 @@ void sortedInsert(struct Node **head_ref, struct Data data, int axis){
             return;
         }
         
-
-        if (currentNode->data.coordinate[axis] == 10.0){
-            struct Node *randomHead = *head_ref;
-            printf("espere um momento, vamos printar a data para ver o que acontece: %f \n", data.coordinate[axis]);
-            showAllNodes(&randomHead);
-        }
-        
-
-        printf("o próximo nó a este acima é: %f \n", currentNode->next->data.coordinate[axis]);
-
-        hierarchyOfAxis(&newNode, &currentNode, axis);
-        /*
-        newNode->next = currentNode->next;
-        currentNode->next = newNode;
-        */
-        
+        hierarchyOfAxis(&newNode, &currentNode, mainAxis, currentAxis);
     }   
 }
 

@@ -10,6 +10,7 @@
  * @version 0.1
  * @date 2021-12-14
  * @copyright Copyright (c) 2021
+ * @name WALLY
  */
 
 #include "main.h"
@@ -28,13 +29,13 @@ void destroyList(struct Node **head_ref){
 }
 
 int main () {
-    int axis = whichAxis();
+    int mainAxis = whichAxis();
 
     struct Node *headNonOrderedPush = NULL;
     struct Node *headNonOrderedAppend = NULL;
     struct Node *headOrdered = NULL;
 
-    readAndStorageFile(&headNonOrderedPush, &headNonOrderedAppend, &headOrdered, axis);
+    readAndStorageFile(&headNonOrderedPush, &headNonOrderedAppend, &headOrdered, mainAxis);
 
     printf("inserção com push: \n");
     li(headNonOrderedPush);

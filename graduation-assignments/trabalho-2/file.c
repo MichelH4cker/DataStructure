@@ -5,15 +5,15 @@ int whichAxis(){
     scanf("%s", command);
 
     if (strcmp(command, "lx") == 0){
-        return 0;
+        return X;
     } else if (strcmp(command, "ly") == 0) {
-        return 1;
+        return Y;
     } else {
-        return 2;
+        return Z;
     }
 }
 
-void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **headNonOrderedAppend_ref, struct Node **headOrdered_ref, int axis){
+void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **headNonOrderedAppend_ref, struct Node **headOrdered_ref, int mainAxis){
     struct Node *newHeadPush = *headNonOrderedPush_ref;
     struct Node *newHeadAppend = *headNonOrderedAppend_ref;
     struct Node *newHeadOrdered = *headNonOrderedAppend_ref;
@@ -32,7 +32,7 @@ void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **head
         else {
             push(&newHeadPush, data);
             append(&newHeadAppend, data);
-            sortedInsert(&newHeadOrdered, data, axis);
+            sortedInsert(&newHeadOrdered, data, mainAxis);
         }
     }
 
