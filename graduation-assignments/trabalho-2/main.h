@@ -26,6 +26,7 @@ struct Data {
 };
 
 struct Node {
+    int timesAccessed;
     struct Data data;
     struct Node *next;
     struct Node *previous;

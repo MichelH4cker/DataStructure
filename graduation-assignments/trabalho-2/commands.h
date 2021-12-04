@@ -46,9 +46,10 @@ void lf(struct Node *head_ref);
 
 /**
  * @brief Exibir o total de nodos acessados nas inserções nas listas LX,LI,LF
- * @param
+ * @param head_ref Nó cabeçalho da lista, ou seja, o primeiro nó da lista encadeada dupla
+ * @return int soma das quantidades de vezes em que os nodos foram acessados
  */
-void tot();
+int tot(struct Node **head_ref);
 
 /**
  * @brief Listar o dado mais próximo em Z contido na lista ordenada por Z, ou seja, mostrar o dado com o menor valor de Z e o total de nodos visitados para achar este dado

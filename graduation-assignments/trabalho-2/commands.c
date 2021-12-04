@@ -41,3 +41,15 @@ void lf(struct Node *head_ref){
     
     showAllNodes(&head_ref);
 }
+
+int tot(struct Node **head_ref){
+    struct Node *currentNode = *head_ref;
+
+    int accessedNodes = 0;
+
+    while (currentNode != NULL){
+        accessedNodes = accessedNodes + currentNode->timesAccessed;
+        currentNode = currentNode->next;
+    }
+    return accessedNodes;
+}
