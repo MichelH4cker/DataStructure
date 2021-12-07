@@ -14,6 +14,8 @@ struct Node;
  */
 void showAllNodes(struct Node **head_ref);
 
+int readCommand();
+
 /**
  * @brief Listar todos dados da lista ordenada por X (X depois Y depois Z) 
  * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadead dupla
@@ -45,11 +47,18 @@ void li(struct Node *head_ref);
 void lf(struct Node *head_ref);
 
 /**
+ * @brief 
+ * @param
+ * @return
+ */
+int addNodes();
+
+/**
  * @brief Exibir o total de nodos acessados nas inserções nas listas LX,LI,LF
  * @param head_ref Nó cabeçalho da lista, ou seja, o primeiro nó da lista encadeada dupla
  * @return int soma das quantidades de vezes em que os nodos foram acessados
  */
-int tot(struct Node **head_ref);
+void tot(struct Node **headOrdered_ref, struct Node **headPush_ref, struct Node **headAppend_ref);
 
 /**
  * @brief Listar o dado mais próximo em Z contido na lista ordenada por Z, ou seja, mostrar o dado com o menor valor de Z e o total de nodos visitados para achar este dado
