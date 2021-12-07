@@ -35,30 +35,28 @@ int main () {
     struct Node *headNonOrderedAppend = NULL;
     struct Node *headOrdered = NULL;
 
-    readAndStorageFile(&headNonOrderedPush, &headNonOrderedAppend, &headOrdered, mainAxis);
+    //int keyOfDictionary = readCommand();
+    readAndStorageFile(&headOrdered, &headNonOrderedPush, &headNonOrderedAppend, mainAxis);
+    tot(&headOrdered, &headNonOrderedPush, &headNonOrderedAppend);
 
-    printf("inserção com push: \n");
-    li(headNonOrderedPush);
-    printf("====================== \n");
+    //printf("inserção com push: \n");
+    //li(headNonOrderedPush);
+    //printf("====================== \n");
 
-    printf("inserção com append: \n");
-    lf(headNonOrderedAppend);
-    printf("====================== \n");
+    //printf("inserção com append: \n");
+    //lf(headNonOrderedAppend);
+    //printf("====================== \n");
 
-    printf("inserção com eixo digitado ordenado: \n");
-    lx(headOrdered);
-    printf("====================== \n");
+    //printf("o número de nodos acessados pela inserção ordenada por x foi: %d \n", tot(&headOrdered));    
+    //printf("====================== \n");
 
-    printf("o número de nodos acessados pela inserção ordenada por x foi: %d \n", tot(&headOrdered));    
-    printf("====================== \n");
-
-    printf("inserção com eixo digitado ordenado: \n");
-    printf("o número de nodos acessados pela inserção push: %d \n", tot(&headNonOrderedPush));    
-    printf("====================== \n");
+    //printf("inserção com eixo digitado ordenado: \n");
+    //printf("o número de nodos acessados pela inserção push: %d \n", tot(&headNonOrderedPush));    
+    //printf("====================== \n");
         
-    printf("inserção com eixo digitado ordenado: \n");
-    printf("o número de nodos acessados pela inserção append foi: %d \n", tot(&headNonOrderedAppend));    
-    printf("====================== \n");
+    //printf("inserção com eixo digitado ordenado: \n");
+    //printf("o número de nodos acessados pela inserção append foi: %d \n", tot(&headNonOrderedAppend));    
+    //printf("====================== \n");
     
     destroyList(&headNonOrderedPush);
     destroyList(&headNonOrderedAppend);

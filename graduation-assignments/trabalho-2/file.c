@@ -13,7 +13,7 @@ int whichAxis(){
     }
 }
 
-void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **headNonOrderedAppend_ref, struct Node **headOrdered_ref, int mainAxis){
+void readAndStorageFile(struct Node **headOrdered_ref, struct Node **headNonOrderedPush_ref, struct Node **headNonOrderedAppend_ref, int mainAxis){
     struct Node *newHeadPush = *headNonOrderedPush_ref;
     struct Node *newHeadAppend = *headNonOrderedAppend_ref;
     struct Node *newHeadOrdered = *headNonOrderedAppend_ref;
@@ -25,14 +25,15 @@ void readAndStorageFile(struct Node **headNonOrderedPush_ref, struct Node **head
     struct Data data;
 
     while (fp != NULL){
-        fscanf(fp, "%f %f %f %d %d %d %d", &data.coordinate[0], &data.coordinate[1], &data.coordinate[2], &data.rgb.red, &data.rgb.green, &data.rgb.blue, &data.ID);
+        fscanf(fp, "%f %f %f %d %d %d %d", &data.coordinate[X], &data.coordinate[Y], &data.coordinate[Z], &data.rgb.red, &data.rgb.green, &data.rgb.blue, &data.ID);
+
         if (data.ID == -1){
             break;
-        }
-        else {
+        } else {
+            int currentAxis = mainAxis;
             push(&newHeadPush, data);
             append(&newHeadAppend, data);
-            sortedInsert(&newHeadOrdered, data, mainAxis);
+            sortedInsert(&newHeadOrdered, data, mainAxis, currentAxis);
         }
     }
 

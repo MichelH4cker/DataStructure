@@ -12,6 +12,12 @@ void showAllNodes(struct Node **head_ref){
     }
 }
 
+int readCommand(){
+    char command[30];
+    scanf("%s", command);
+    printf("O comando digitado foi %s \n", command);    
+}
+
 void lx(struct Node *head_ref){
     if (head_ref == NULL) return;
     
@@ -42,7 +48,7 @@ void lf(struct Node *head_ref){
     showAllNodes(&head_ref);
 }
 
-int tot(struct Node **head_ref){
+int addNodes(struct Node **head_ref){
     struct Node *currentNode = *head_ref;
 
     int accessedNodes = 0;
@@ -51,5 +57,18 @@ int tot(struct Node **head_ref){
         accessedNodes = accessedNodes + currentNode->timesAccessed;
         currentNode = currentNode->next;
     }
+
     return accessedNodes;
+}
+
+void tot(struct Node **headOrdered_ref, struct Node **headPush_ref, struct Node **headAppend_ref){
+    int accessedNodesOrdered = 0;
+    int accessedNodesPush = 0;
+    int accessedNodesAppend = 0;
+
+    accessedNodesOrdered = addNodes(headOrdered_ref);    
+    accessedNodesPush = addNodes(headPush_ref);
+    accessedNodesAppend = addNodes(headAppend_ref);    
+
+    printf("LX:%d LI:%d LF:%d\n", accessedNodesOrdered, accessedNodesPush, accessedNodesAppend);
 }
