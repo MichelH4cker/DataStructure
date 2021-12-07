@@ -70,7 +70,7 @@ void pz();
  * @brief Listar o dado mais próximo em Z, contido na lista não ordenada com inserção no Início, ou seja, mostrar o dado com o menor valor de Z e o total de nodos visitados para achar este dado
  * @param
  */
-void pi();
+void pi(struct Node **head_ref);
 
 /**
  * @brief Ler do teclado um número inteiro representando o ID procurado e exibir apenas os dados que possuem o ID informado. Exibir no formato igual ao das opões LX,LY,LZ,LI e LF, porém aplicando  um  filtro  que exibe apenas os dados com o ID solicitado. Consultar a lista ordenada por X (LX – X depois Y depois Z) para exibir os dados
