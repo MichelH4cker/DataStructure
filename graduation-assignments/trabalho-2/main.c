@@ -37,10 +37,12 @@ int main () {
 
     //int keyOfDictionary = readCommand();
     readAndStorageFile(&headOrdered, &headNonOrderedPush, &headNonOrderedAppend, mainAxis);
-    tot(&headOrdered, &headNonOrderedPush, &headNonOrderedAppend);
+    //tot(&headOrdered, &headNonOrderedPush, &headNonOrderedAppend);
 
-    pi(&headNonOrderedPush);
+    //pi(&headNonOrderedPush);
     //pz();
+
+    id(&headNonOrderedPush, 1);
 
     //printf("inserção com push: \n");
     //li(headNonOrderedPush);

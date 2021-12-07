@@ -76,7 +76,7 @@ void pi(struct Node **head_ref);
  * @brief Ler do teclado um número inteiro representando o ID procurado e exibir apenas os dados que possuem o ID informado. Exibir no formato igual ao das opões LX,LY,LZ,LI e LF, porém aplicando  um  filtro  que exibe apenas os dados com o ID solicitado. Consultar a lista ordenada por X (LX – X depois Y depois Z) para exibir os dados
  * @param
  */
-void id();
+void id(struct Node **head_ref, int id);
 
 /**
  * @brief  Ler do teclado 3 números com as coordenadas X,Y,Z mínimas e 3 números com as coordenadas X,Y,Z máximas, definindo um “bounding box" (retângulo de recorte) dos dados 3D. Considerando a lista LX (ordem em X depois Y e depois Z, exibir na tela apenas os dados que ficam dentro do retângulo definido (incluindo os limites max e min)
