@@ -39,6 +39,9 @@ int main () {
     readAndStorageFile(&headOrdered, &headNonOrderedPush, &headNonOrderedAppend, mainAxis);
     tot(&headOrdered, &headNonOrderedPush, &headNonOrderedAppend);
 
+    pi(&headNonOrderedPush);
+    //pz();
+
     //printf("inserção com push: \n");
     //li(headNonOrderedPush);
     //printf("====================== \n");

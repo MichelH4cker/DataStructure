@@ -63,7 +63,7 @@ void sortedInsert(struct Data data, struct Node **head_ref){
     } else {
         currentNode = *head_ref;
 
-        while (currentNode->next != NULL && currentNode->next->data.dataInteger < newNode->data.dataInteger) {
+        while (currentNode->next != NULL && currentNode->next->data.dataInteger <= newNode->data.dataInteger) {
             currentNode = currentNode->next;
         }
         newNode->next = currentNode->next;

@@ -72,3 +72,47 @@ void tot(struct Node **headOrdered_ref, struct Node **headPush_ref, struct Node 
 
     printf("LX:%d LI:%d LF:%d\n", accessedNodesOrdered, accessedNodesPush, accessedNodesAppend);
 }
+
+void pz(){
+
+}
+
+void pi(struct Node **head_ref){
+    float smallerX = (*head_ref)->data.coordinate[X];
+    float smallerY = (*head_ref)->data.coordinate[Y];
+    float smallerZ = (*head_ref)->data.coordinate[Z];
+    
+    float currentX;
+    float currentY;
+    float currentZ;
+
+    int accessNodes = 0;
+
+    struct Node *currentNode = (*head_ref);
+    struct Node *smallerNode = NULL;
+    while (currentNode != NULL){
+        currentX = currentNode->data.coordinate[X];    
+        currentY = currentNode->data.coordinate[Y];    
+        currentZ = currentNode->data.coordinate[Z];    
+        
+        if (currentZ < smallerZ){
+            smallerZ = currentZ;
+            smallerNode = currentNode;
+        } else if (currentZ == smallerZ) {
+            if (currentX < smallerX){
+                smallerX = currentX;
+                smallerNode = currentNode;
+            } else if (currentX == currentX){
+                if (currentY < smallerY){
+                    smallerY = currentY;
+                    smallerNode = currentNode;
+                }
+            }
+        }
+        currentNode = currentNode->next;
+        accessNodes++;
+    }
+
+    printf("%f %f %f TOTAL:%d\n", smallerNode->data.coordinate[X], smallerNode->data.coordinate[Y], smallerNode->data.coordinate[Z], accessNodes);
+
+}
