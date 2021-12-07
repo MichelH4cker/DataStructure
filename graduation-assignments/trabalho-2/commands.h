@@ -12,7 +12,7 @@ struct Node;
  * @brief Lista todos os nós da lista passada como parâmetro
  * @param head_ref Nó cabeçalho da lista, ou seja, priemiro nó da lista encadeada dupla
  */
-void showAllNodes(struct Node **head_ref);
+void showAllNodes(struct Node **head_ref, int id, int idFunctionActivated);
 
 int readCommand();
 

@@ -42,7 +42,7 @@ int main () {
     //pi(&headNonOrderedPush);
     //pz();
 
-    id(&headNonOrderedPush, 1);
+    id(&headOrdered, 2);
 
     //printf("inserção com push: \n");
     //li(headNonOrderedPush);

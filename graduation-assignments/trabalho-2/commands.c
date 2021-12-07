@@ -1,12 +1,16 @@
 #include "commands.h"
 
-void showAllNodes (struct Node **head_ref){
+void showAllNodes (struct Node **head_ref, int id, int idFunctionActivated){
     if (head_ref == NULL) return;
     
     struct Node *currentNode = *head_ref;
-    
+    int currentID;
     while (currentNode != NULL){
-
+        currentID = currentNode->data.ID;
+        if ((id != currentID) && idFunctionActivated == 1){
+            currentNode = currentNode->next;    
+            continue;
+        }
         printf("%f %f %f %d %d %d %d\n", currentNode->data.coordinate[X], currentNode->data.coordinate[Y], currentNode->data.coordinate[Z], currentNode->data.rgb.red, currentNode->data.rgb.green, currentNode->data.rgb.blue, currentNode->data.ID);
         
         currentNode = currentNode->next;    
@@ -27,31 +31,31 @@ int readCommand (){
 void lx (struct Node *head_ref){
     if (head_ref == NULL) return;
     
-    showAllNodes(&head_ref);
+    showAllNodes(&head_ref, -1, 0);
 }
 
 void ly (struct Node *head_ref){
     if (head_ref == NULL) return;
     
-    showAllNodes(&head_ref);
+    showAllNodes(&head_ref, -1, 0);
 }
 
 void lz (struct Node *head_ref){
     if (head_ref == NULL) return;
     
-    showAllNodes(&head_ref);
+    showAllNodes(&head_ref, -1, 0);
 }
 
 void li (struct Node *head_ref){
     if (head_ref == NULL) return;
     
-    showAllNodes(&head_ref);
+    showAllNodes(&head_ref, -1, 0);
 }
 
 void lf (struct Node *head_ref){
     if (head_ref == NULL) return;
     
-    showAllNodes(&head_ref);
+    showAllNodes(&head_ref, -1, 0);
 }
 
 int addNodes (struct Node **head_ref){
@@ -124,25 +128,6 @@ void pi(struct Node **head_ref){
 }
 
 void id (struct Node **head_ref, int id){
-    struct Node *currentNode = (*head_ref);
-    struct Node *headRequiredID = NULL;
-
-    struct Data data;
-    int currentID;
-    while (currentNode != NULL){
-        data = currentNode->data;
-        currentID = currentNode->data.ID;
-        
-        //printf("%f %f %f %d %d %d %d\n", data.coordinate[X], data.coordinate[Y], data.coordinate[Z], data.rgb.red, data.rgb.green, data.rgb.blue, data.ID);
-        
-        if (currentID == id){
-            sortedInsert(&headRequiredID, data, X, X);
-        }
-        currentNode = currentNode->next;
-
-        showAllNodes(&headRequiredID);
-    }
-    //printf("===========\n");
-    //struct Node *head = headRequiredID;
-    //showAllNodes(&head);
+    struct Node *anotherHead_ref = *head_ref;
+    showAllNodes(&anotherHead_ref, id, 1);
 }
