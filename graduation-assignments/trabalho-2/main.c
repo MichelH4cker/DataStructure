@@ -29,39 +29,15 @@ void destroyList(struct Node **head_ref){
 }
 
 int main () {
+    int key = idOfCommand();
+    wallyActs();    
     int mainAxis = whichAxis();
 
     struct Node *headNonOrderedPush = NULL;
     struct Node *headNonOrderedAppend = NULL;
     struct Node *headOrdered = NULL;
 
-    //int keyOfDictionary = readCommand();
     readAndStorageFile(&headOrdered, &headNonOrderedPush, &headNonOrderedAppend, mainAxis);
-    //tot(&headOrdered, &headNonOrderedPush, &headNonOrderedAppend);
-
-    //pi(&headNonOrderedPush);
-    //pz();
-
-    id(&headOrdered, 2);
-
-    //printf("inserção com push: \n");
-    //li(headNonOrderedPush);
-    //printf("====================== \n");
-
-    //printf("inserção com append: \n");
-    //lf(headNonOrderedAppend);
-    //printf("====================== \n");
-
-    //printf("o número de nodos acessados pela inserção ordenada por x foi: %d \n", tot(&headOrdered));    
-    //printf("====================== \n");
-
-    //printf("inserção com eixo digitado ordenado: \n");
-    //printf("o número de nodos acessados pela inserção push: %d \n", tot(&headNonOrderedPush));    
-    //printf("====================== \n");
-        
-    //printf("inserção com eixo digitado ordenado: \n");
-    //printf("o número de nodos acessados pela inserção append foi: %d \n", tot(&headNonOrderedAppend));    
-    //printf("====================== \n");
     
     destroyList(&headNonOrderedPush);
     destroyList(&headNonOrderedAppend);

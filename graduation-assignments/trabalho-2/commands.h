@@ -9,6 +9,20 @@ struct Data;
 struct Node;
 
 /**
+ * @brief 
+ * @param
+ * @return int
+ */
+
+int idOfCommand();
+
+/**
+ * @brief 
+ * @param
+ */
+void wallyActs();
+
+/**
  * @brief Lista todos os nós da lista passada como parâmetro
  * @param head_ref Nó cabeçalho da lista, ou seja, priemiro nó da lista encadeada dupla
  */

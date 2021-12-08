@@ -1,5 +1,49 @@
 #include "commands.h"
 
+int idOfCommand(){
+    char *dictionary[10] = {"lx", "ly", "lz", "li", "lf", "tot", "pz", "pi", "id", "cut"};
+    char command[3];
+    int key = 0;
+    scanf("%s", command);
+    while (id < 9){
+        if (strcmp(command, dictionary[key]) == 0){
+            return key;       
+        }
+        key++;
+    }
+}
+
+void wallyActs(){
+    switch (){
+        case 0:
+            return;
+        case 1:
+            return;
+        case 2:
+            return;
+        case 3:
+            return;
+        case 4:
+            return;
+        case 5:
+            return;
+        case 6:
+
+            return;
+        case 7:
+
+            return;
+        case 8:
+
+            return;
+        case 9:
+
+            return;
+        default:
+            return;
+    }
+}
+
 void showAllNodes (struct Node **head_ref, int id, int idFunctionActivated){
     if (head_ref == NULL) return;
     
