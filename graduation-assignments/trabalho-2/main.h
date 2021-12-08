@@ -4,6 +4,8 @@
 #define X 0
 #define Y 1
 #define Z 2
+#define ACTIVATED 1
+#define DISABLED 0
 
 #include <stdio.h>
 #include <stdlib.h>

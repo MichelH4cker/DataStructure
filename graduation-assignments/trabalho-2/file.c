@@ -1,20 +1,5 @@
 #include "file.h"
 
-int whichAxis(){
-    char command[3];
-    scanf("%s", command);
-
-    if (strcmp(command, "lx") == 0){
-        return X;
-    } else if (strcmp(command, "ly") == 0) {
-        return Y;
-    } else {
-        return Z;
-    }
-}
-
-//headOrderedX, &headOrderedY, headOrderedZ, &headPush, &headAppend
-
 void readAndStorageFile(struct Node **headOrderedX_ref, struct Node **headOrderedY_ref, struct Node **headOrderedZ_ref, struct Node **headPush_ref, struct Node **headAppend_ref){
     struct Node *newHeadPush     = *headPush_ref;
     struct Node *newHeadAppend   = *headAppend_ref;
@@ -49,5 +34,4 @@ void readAndStorageFile(struct Node **headOrderedX_ref, struct Node **headOrdere
     *headOrderedX_ref = newHeadOrderedX;
     *headOrderedY_ref = newHeadOrderedY;
     *headOrderedZ_ref = newHeadOrderedZ;
-    
 }

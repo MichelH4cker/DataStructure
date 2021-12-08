@@ -26,14 +26,12 @@ void hierarchyOfAxis(struct Node **headSon_ref, struct Node **newNode_ref, int m
 
     if ((*headSon_ref)->data.coordinate[currentAxis] > (*newNode_ref)->data.coordinate[currentAxis]){
         (*newNode_ref)->timesAccessed++;
-
         (*headSon_ref)->previous = (*newNode_ref);
         (*newNode_ref)->next = (*headSon_ref);
         (*headSon_ref) = (*newNode_ref);
         
     } else if ((*headSon_ref)->data.coordinate[currentAxis] == (*newNode_ref)->data.coordinate[currentAxis]){
         (*newNode_ref)->timesAccessed++;
-
         currentAxis = switchAxis(mainAxis, currentAxis);
         struct Node *headGrandSon = (*headSon_ref);
         struct Node *newNodeSon_ref = (*newNode_ref);
@@ -56,7 +54,6 @@ void hierarchyOfAxis(struct Node **headSon_ref, struct Node **newNode_ref, int m
                 return;
             }
             (*newNode_ref)->timesAccessed++;
-
             currentNode = currentNode->next;
         }
         // caso o while faça com que o currentNode no eixo principal seja maior que o newNode_ref no eixo principal
@@ -64,7 +61,6 @@ void hierarchyOfAxis(struct Node **headSon_ref, struct Node **newNode_ref, int m
             currentNode = currentNode->previous;
             (*newNode_ref)->timesAccessed++;
         
-
         (*newNode_ref)->next = currentNode->next;
         currentNode->next = (*newNode_ref);
     }
@@ -83,18 +79,14 @@ void sortedInsert(struct Node **head_ref, struct Data data, int mainAxis, int cu
 
     if ((*head_ref) == NULL){ //cabeça vazia
         newNode->timesAccessed++;
-
         *head_ref = newNode;
     } else if ((*head_ref)->data.coordinate[mainAxis] > newNode->data.coordinate[mainAxis]) {  
         newNode->timesAccessed++;
         (*head_ref)->previous = newNode;
-        
         newNode->next = *head_ref;
-        
         *head_ref = newNode;
     } else if ((*head_ref)->data.coordinate[mainAxis] == newNode->data.coordinate[mainAxis]){
         newNode->timesAccessed++;
-
         struct Node *headSon = (*head_ref);
         struct Node *newNode_ref = newNode;
         currentAxis = switchAxis(mainAxis, currentAxis);
@@ -107,15 +99,13 @@ void sortedInsert(struct Node **head_ref, struct Data data, int mainAxis, int cu
         while ((currentNode->next != NULL) && (currentNode->next->data.coordinate[currentAxis] <= newNode->data.coordinate[currentAxis])){
             if (currentNode->next->data.coordinate[mainAxis] == newNode->data.coordinate[mainAxis]){
                 newNode->timesAccessed++;
-
                 struct Node *headSon = currentNode->next;
                 struct Node *newNodeSon = newNode;
-
+                
                 currentAxis = switchAxis(mainAxis, currentAxis);
                 hierarchyOfAxis(&headSon, &newNodeSon,mainAxis, currentAxis);
                 
                 currentNode->next = headSon;
-
                 return;
             }
             

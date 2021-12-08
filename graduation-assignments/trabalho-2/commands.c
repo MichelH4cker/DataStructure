@@ -13,7 +13,6 @@ int idOfCommand(){
     }
 }
 
-
 void wallyActs(struct Node **headOrderedX_ref, struct Node **headOrderedY_ref, struct Node **headOrderedZ_ref, struct Node **headPush_ref, struct Node **headAppend_ref){
     int task = idOfCommand();
     int intID;
@@ -81,7 +80,7 @@ void showAllNodes (struct Node **head_ref, int id, int idFunctionActivated){
     int currentID;
     while (currentNode != NULL){
         currentID = currentNode->data.ID;
-        if ((id != currentID) && idFunctionActivated == 1){
+        if ((id != currentID) && idFunctionActivated){
             currentNode = currentNode->next;    
             continue;
         }
@@ -91,48 +90,37 @@ void showAllNodes (struct Node **head_ref, int id, int idFunctionActivated){
     }
 }
 
-int readCommand (){
-    char command[30];
-    scanf("%s", command);
-    if (strcmp(command, "ID") == 0){
-        int id;
-        scanf("%d", &id);
-    }
-    
-    printf("O comando digitado foi %s \n", command);    
-}
-
 void lx (struct Node **head_ref){
     if (head_ref == NULL) return;
     struct Node *newHead = *head_ref;
-    showAllNodes(&newHead, -1, 0);
+    showAllNodes(&newHead, -1, DISABLED);
 }
 
 void ly (struct Node **head_ref){
     if (head_ref == NULL) return;
     struct Node *newHead = *head_ref;
-    showAllNodes(&newHead, -1, 0);
+    showAllNodes(&newHead, -1, DISABLED);
 }
 
 void lz (struct Node **head_ref){
     if (head_ref == NULL) return;
     struct Node *newHead = *head_ref;
-    showAllNodes(&newHead, -1, 0);
+    showAllNodes(&newHead, -1, DISABLED);
 }
 
 void li (struct Node **head_ref){
     if (head_ref == NULL) return;
     struct Node *newHead = *head_ref;
-    showAllNodes(&newHead, -1, 0);
+    showAllNodes(&newHead, -1, DISABLED);
 }
 
 void lf (struct Node **head_ref){
     if (head_ref == NULL) return;
     struct Node *newHead = *head_ref;
-    showAllNodes(&newHead, -1, 0);
+    showAllNodes(&newHead, -1, DISABLED);
 }
 
-int addNodes (struct Node **head_ref){
+int addIntAccessedNodes (struct Node **head_ref){
     struct Node *currentNode = *head_ref;
 
     int accessedNodes = 0;
@@ -150,9 +138,9 @@ void tot (struct Node **headOrdered_ref, struct Node **headPush_ref, struct Node
     int accessedNodesPush = 0;
     int accessedNodesAppend = 0;
 
-    accessedNodesOrdered = addNodes(headOrdered_ref);    
-    accessedNodesPush = addNodes(headPush_ref);
-    accessedNodesAppend = addNodes(headAppend_ref);    
+    accessedNodesOrdered = addIntAccessedNodes(headOrdered_ref);    
+    accessedNodesPush = addIntAccessedNodes(headPush_ref);
+    accessedNodesAppend = addIntAccessedNodes(headAppend_ref);    
 
     printf("LX:%d LI:%d LF:%d\n", accessedNodesOrdered, accessedNodesPush, accessedNodesAppend);
 }
@@ -204,7 +192,7 @@ void pi (struct Node **head_ref){
 
 void id (struct Node **head_ref, int id){
     struct Node *anotherHead_ref = *head_ref;
-    showAllNodes(&anotherHead_ref, id, 1);
+    showAllNodes(&anotherHead_ref, id, ACTIVATED);
 }
 
 
@@ -229,5 +217,5 @@ void cut (struct Node **head_ref, float *coordinateMax, float *coordinateMin){
     
         currentNode = currentNode->next;
     }
-    showAllNodes(&newHead, -1 , 0);
+    showAllNodes(&newHead, -1 , DISABLED);
 }

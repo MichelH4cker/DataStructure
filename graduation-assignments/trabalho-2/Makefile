@@ -23,4 +23,4 @@ clean :
 	clear
 
 zip : 
-	zip trabalho-2.zip *.c *.h Makefile
+	zip wally.zip *.c *.h Makefile
