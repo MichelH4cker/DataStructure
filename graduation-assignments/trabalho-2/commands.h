@@ -78,7 +78,7 @@ void tot(struct Node **headOrdered_ref, struct Node **headPush_ref, struct Node 
  * @brief Listar o dado mais próximo em Z contido na lista ordenada por Z, ou seja, mostrar o dado com o menor valor de Z e o total de nodos visitados para achar este dado
  * @param
  */
-void pz();
+void pz(struct Node **head_ref);
 
 /**
  * @brief Listar o dado mais próximo em Z, contido na lista não ordenada com inserção no Início, ou seja, mostrar o dado com o menor valor de Z e o total de nodos visitados para achar este dado

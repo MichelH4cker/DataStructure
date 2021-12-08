@@ -1,7 +1,7 @@
 #include "commands.h"
 
 int idOfCommand(){
-    char *dictionary[10] = {"lx", "ly", "lz", "li", "lf", "tot", "pz", "pi", "id", "cut"};
+    char *dictionary[10] = {"LX", "LY", "LZ", "LI", "LF", "TOT", "PZ", "PI", "ID", "CUT"};
     char command[3];
     int key = 0;
     scanf("%s", command);
@@ -16,7 +16,6 @@ int idOfCommand(){
 
 void wallyActs(struct Node **headOrderedX_ref, struct Node **headOrderedY_ref, struct Node **headOrderedZ_ref, struct Node **headPush_ref, struct Node **headAppend_ref){
     int task = idOfCommand();
-    printf("saiu do id\n");
     int intID;
     float coordinateMax[3];
     float coordinateMin[3];
@@ -50,7 +49,8 @@ void wallyActs(struct Node **headOrderedX_ref, struct Node **headOrderedY_ref, s
             tot(&newHeadX, &newHeadPush, &newHeadAppend);
             return;
         case 6:
-            //pz();
+            head = *headOrderedZ_ref;
+            pz(&head);
             return;
         case 7:
             head = *headPush_ref;
@@ -85,7 +85,7 @@ void showAllNodes (struct Node **head_ref, int id, int idFunctionActivated){
             currentNode = currentNode->next;    
             continue;
         }
-        printf("%f %f %f %d %d %d %d\n", currentNode->data.coordinate[X], currentNode->data.coordinate[Y], currentNode->data.coordinate[Z], currentNode->data.rgb.red, currentNode->data.rgb.green, currentNode->data.rgb.blue, currentNode->data.ID);
+        printf("%.5f, %.5f, %.5f, %d, %d, %d, %d\n", currentNode->data.coordinate[X], currentNode->data.coordinate[Y], currentNode->data.coordinate[Z], currentNode->data.rgb.red, currentNode->data.rgb.green, currentNode->data.rgb.blue, currentNode->data.ID);
         
         currentNode = currentNode->next;    
     }
@@ -157,11 +157,12 @@ void tot (struct Node **headOrdered_ref, struct Node **headPush_ref, struct Node
     printf("LX:%d LI:%d LF:%d\n", accessedNodesOrdered, accessedNodesPush, accessedNodesAppend);
 }
 
-void pz(){
-
+void pz (struct Node **head_ref){
+    struct Node *smallerNode = *head_ref;
+    printf("%.5f %.5f %.5f TOTAL:1\n", smallerNode->data.coordinate[X], smallerNode->data.coordinate[Y], smallerNode->data.coordinate[Z]);
 }
 
-void pi(struct Node **head_ref){
+void pi (struct Node **head_ref){
     float smallerX = (*head_ref)->data.coordinate[X];
     float smallerY = (*head_ref)->data.coordinate[Y];
     float smallerZ = (*head_ref)->data.coordinate[Z];
@@ -206,9 +207,7 @@ void id (struct Node **head_ref, int id){
     showAllNodes(&anotherHead_ref, id, 1);
 }
 
-/*
-0.0 0.0 0.0 10.0 1.0 1.0 
-*/
+
 void cut (struct Node **head_ref, float *coordinateMax, float *coordinateMin){
     struct Node *currentNode = *head_ref;
     struct Node *newHead = NULL;

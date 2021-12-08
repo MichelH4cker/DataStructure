@@ -101,6 +101,7 @@ void sortedInsert(struct Node **head_ref, struct Data data, int mainAxis, int cu
         hierarchyOfAxis(&headSon, &newNode_ref, mainAxis, currentAxis);
         (*head_ref) = headSon;
     } else {
+        newNode->timesAccessed++;
         currentNode = *head_ref;
 
         while ((currentNode->next != NULL) && (currentNode->next->data.coordinate[currentAxis] <= newNode->data.coordinate[currentAxis])){
