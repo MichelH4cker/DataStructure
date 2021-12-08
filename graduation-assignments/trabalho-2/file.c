@@ -13,10 +13,14 @@ int whichAxis(){
     }
 }
 
-void readAndStorageFile(struct Node **headOrdered_ref, struct Node **headNonOrderedPush_ref, struct Node **headNonOrderedAppend_ref, int mainAxis){
-    struct Node *newHeadPush = *headNonOrderedPush_ref;
-    struct Node *newHeadAppend = *headNonOrderedAppend_ref;
-    struct Node *newHeadOrdered = *headNonOrderedAppend_ref;
+//headOrderedX, &headOrderedY, headOrderedZ, &headPush, &headAppend
+
+void readAndStorageFile(struct Node **headOrderedX_ref, struct Node **headOrderedY_ref, struct Node **headOrderedZ_ref, struct Node **headPush_ref, struct Node **headAppend_ref){
+    struct Node *newHeadPush     = *headPush_ref;
+    struct Node *newHeadAppend   = *headAppend_ref;
+    struct Node *newHeadOrderedX = *headOrderedX_ref;
+    struct Node *newHeadOrderedY = *headOrderedY_ref;
+    struct Node *newHeadOrderedZ = *headOrderedZ_ref;
 
     FILE *fp;
     fp = fopen("dados3d.txt", "r");
@@ -30,16 +34,20 @@ void readAndStorageFile(struct Node **headOrdered_ref, struct Node **headNonOrde
         if (data.ID == -1){
             break;
         } else {
-            int currentAxis = mainAxis;
             push(&newHeadPush, data);
             append(&newHeadAppend, data);
-            sortedInsert(&newHeadOrdered, data, mainAxis, currentAxis);
+            sortedInsert(&newHeadOrderedX, data, X, X);
+            sortedInsert(&newHeadOrderedY, data, Y, Y);
+            sortedInsert(&newHeadOrderedZ, data, Z, Z);
         }
     }
 
     fclose(fp);
 
-    *headNonOrderedPush_ref = newHeadPush;
-    *headNonOrderedAppend_ref = newHeadAppend;
-    *headOrdered_ref = newHeadOrdered;
+    *headPush_ref     = newHeadPush;
+    *headAppend_ref   = newHeadAppend;
+    *headOrderedX_ref = newHeadOrderedX;
+    *headOrderedY_ref = newHeadOrderedY;
+    *headOrderedZ_ref = newHeadOrderedZ;
+    
 }

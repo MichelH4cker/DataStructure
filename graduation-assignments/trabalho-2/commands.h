@@ -34,31 +34,31 @@ int readCommand();
  * @brief Listar todos dados da lista ordenada por X (X depois Y depois Z) 
  * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadead dupla
  */
-void lx(struct Node *head_ref);
+void lx(struct Node **head_ref);
 
 /**
  * @brief Listar todos dados da lista ordenada por Y (Y depois X depois Z)
  * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadeada dupla
  */
-void ly(struct Node *head_ref);
+void ly(struct Node **head_ref);
 
 /**
  * @brief Listar todos dados da lista ordenada por Z (Z depois X depois Y)
  * @param head_ref Nó cabeçalho da lista, ou seja, primeiro nó da lista encadeada dupla
  */
-void lz(struct Node *head_ref);
+void lz(struct Node **head_ref);
 
 /**
  * @brief Listar todos dados da lista com inserção NÃO ordenada, inserindo dados no início da lista
  * @param head_ref Nó cabeçalho da lista, ou seja, o primeiro nó da lista encadeada dupla
  */
-void li(struct Node *head_ref);
+void li(struct Node **head_ref);
 
 /**
  * @brief Listar todos dados da lista com inserção NÃO ordenada, inserindo dados no final da lista
  * @param head_ref Nó cabeçalho da lista, ou seja, o primeiro nó da lista encadeada dupla
  */
-void lf(struct Node *head_ref);
+void lf(struct Node **head_ref);
 
 /**
  * @brief 
@@ -96,6 +96,6 @@ void id(struct Node **head_ref, int id);
  * @brief  Ler do teclado 3 números com as coordenadas X,Y,Z mínimas e 3 números com as coordenadas X,Y,Z máximas, definindo um “bounding box" (retângulo de recorte) dos dados 3D. Considerando a lista LX (ordem em X depois Y e depois Z, exibir na tela apenas os dados que ficam dentro do retângulo definido (incluindo os limites max e min)
  * @param
  */
-void cut();
+void cut(struct Node **head_ref, float *coordinateMax, float *coordinateMin);
 
 #endif

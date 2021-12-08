@@ -15,6 +15,6 @@ int whichAxis();
  * @brief lê os dados do arquivo e armazena, por meio da função push, em uma lista encadeada dupla
  * @param headNonOrdered cabeçalho de uma lista não ordenada. Como a lista é encadeada dupla, iserir no início ou inserir no final não faz tanta diferença 
  */
-void readAndStorageFile(struct Node **headOrdered_ref, struct Node **headNonOrderedPush_ref, struct Node **headNonOrderedAppend_ref, int mainAxis);
+void readAndStorageFile(struct Node **headOrderedX_ref, struct Node **headOrderedY_ref, struct Node **headOrderedZ_ref, struct Node **headPush_ref, struct Node **headAppend_ref);
 
 #endif

@@ -29,19 +29,21 @@ void destroyList(struct Node **head_ref){
 }
 
 int main () {
-    int key = idOfCommand();
-    wallyActs();    
-    int mainAxis = whichAxis();
+    struct Node *headPush = NULL;
+    struct Node *headAppend = NULL;
+    struct Node *headOrderedX = NULL;
+    struct Node *headOrderedY = NULL;
+    struct Node *headOrderedZ = NULL;
 
-    struct Node *headNonOrderedPush = NULL;
-    struct Node *headNonOrderedAppend = NULL;
-    struct Node *headOrdered = NULL;
+    readAndStorageFile(&headOrderedX, &headOrderedY, &headOrderedZ, &headPush, &headAppend);
 
-    readAndStorageFile(&headOrdered, &headNonOrderedPush, &headNonOrderedAppend, mainAxis);
+    wallyActs(&headOrderedX, &headOrderedY, &headOrderedZ, &headPush, &headAppend);    
     
-    destroyList(&headNonOrderedPush);
-    destroyList(&headNonOrderedAppend);
-    destroyList(&headOrdered);
+    destroyList(&headPush);
+    destroyList(&headAppend);
+    destroyList(&headOrderedX);
+    destroyList(&headOrderedY);
+    destroyList(&headOrderedZ);
 
     return 0;
 }

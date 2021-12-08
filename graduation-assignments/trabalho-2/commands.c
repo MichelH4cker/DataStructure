@@ -5,7 +5,7 @@ int idOfCommand(){
     char command[3];
     int key = 0;
     scanf("%s", command);
-    while (id < 9){
+    while (key < 10){
         if (strcmp(command, dictionary[key]) == 0){
             return key;       
         }
@@ -13,33 +13,63 @@ int idOfCommand(){
     }
 }
 
-void wallyActs(){
-    switch (){
+
+void wallyActs(struct Node **headOrderedX_ref, struct Node **headOrderedY_ref, struct Node **headOrderedZ_ref, struct Node **headPush_ref, struct Node **headAppend_ref){
+    int task = idOfCommand();
+    printf("saiu do id\n");
+    int intID;
+    float coordinateMax[3];
+    float coordinateMin[3];
+
+    struct Node *newHeadX = *headOrderedX_ref;
+    struct Node *newHeadPush = *headPush_ref;
+    struct Node *newHeadAppend = *headAppend_ref;
+    struct Node *head = NULL;
+    switch (task){
         case 0:
+            head = *headOrderedX_ref;
+            lx(&head);
             return;
         case 1:
+            head = *headOrderedY_ref;
+            ly(&head);
             return;
         case 2:
+            head = *headOrderedZ_ref;
+            lz(&head);
             return;
         case 3:
+            head = *headPush_ref;
+            li(&head);
             return;
         case 4:
+            head = *headAppend_ref;
+            lf(&head);
             return;
         case 5:
+            tot(&newHeadX, &newHeadPush, &newHeadAppend);
             return;
         case 6:
-
+            //pz();
             return;
         case 7:
-
+            head = *headPush_ref;
+            pi(&head);
             return;
         case 8:
-
+            scanf("%d", &intID);
+            head = *headOrderedX_ref;
+            id(&head, intID);
             return;
         case 9:
+            scanf("%f %f %f %f %f %f \n", &coordinateMin[X], &coordinateMin[Y], &coordinateMin[Z], &coordinateMax[X], &coordinateMax[Y], &coordinateMax[Z]);
+       
+            head = *headOrderedX_ref;
 
+            cut(&head, coordinateMax, coordinateMin);
             return;
         default:
+
             return;
     }
 }
@@ -72,34 +102,34 @@ int readCommand (){
     printf("O comando digitado foi %s \n", command);    
 }
 
-void lx (struct Node *head_ref){
+void lx (struct Node **head_ref){
     if (head_ref == NULL) return;
-    
-    showAllNodes(&head_ref, -1, 0);
+    struct Node *newHead = *head_ref;
+    showAllNodes(&newHead, -1, 0);
 }
 
-void ly (struct Node *head_ref){
+void ly (struct Node **head_ref){
     if (head_ref == NULL) return;
-    
-    showAllNodes(&head_ref, -1, 0);
+    struct Node *newHead = *head_ref;
+    showAllNodes(&newHead, -1, 0);
 }
 
-void lz (struct Node *head_ref){
+void lz (struct Node **head_ref){
     if (head_ref == NULL) return;
-    
-    showAllNodes(&head_ref, -1, 0);
+    struct Node *newHead = *head_ref;
+    showAllNodes(&newHead, -1, 0);
 }
 
-void li (struct Node *head_ref){
+void li (struct Node **head_ref){
     if (head_ref == NULL) return;
-    
-    showAllNodes(&head_ref, -1, 0);
+    struct Node *newHead = *head_ref;
+    showAllNodes(&newHead, -1, 0);
 }
 
-void lf (struct Node *head_ref){
+void lf (struct Node **head_ref){
     if (head_ref == NULL) return;
-    
-    showAllNodes(&head_ref, -1, 0);
+    struct Node *newHead = *head_ref;
+    showAllNodes(&newHead, -1, 0);
 }
 
 int addNodes (struct Node **head_ref){
@@ -167,11 +197,38 @@ void pi(struct Node **head_ref){
         accessNodes++;
     }
 
-    printf("%f %f %f TOTAL:%d\n", smallerNode->data.coordinate[X], smallerNode->data.coordinate[Y], smallerNode->data.coordinate[Z], accessNodes);
+    printf("%.5f %.5f %.5f TOTAL:%d\n", smallerNode->data.coordinate[X], smallerNode->data.coordinate[Y], smallerNode->data.coordinate[Z], accessNodes);
 
 }
 
 void id (struct Node **head_ref, int id){
     struct Node *anotherHead_ref = *head_ref;
     showAllNodes(&anotherHead_ref, id, 1);
+}
+
+/*
+0.0 0.0 0.0 10.0 1.0 1.0 
+*/
+void cut (struct Node **head_ref, float *coordinateMax, float *coordinateMin){
+    struct Node *currentNode = *head_ref;
+    struct Node *newHead = NULL;
+    struct Data data;
+
+    float currentCoordinate[3];
+
+    int show = 0;
+
+    while (currentNode != NULL){
+        currentCoordinate[X] = currentNode->data.coordinate[X]; 
+        currentCoordinate[Y] = currentNode->data.coordinate[Y]; 
+        currentCoordinate[Z] = currentNode->data.coordinate[Z]; 
+        
+        if ((currentCoordinate[X] <= coordinateMax[X]) && (currentCoordinate[Y] <= coordinateMax[Y]) && (currentCoordinate[Z] <= coordinateMax[Z]) && (currentCoordinate[X] >= coordinateMin[X]) && (currentCoordinate[Y] >= coordinateMin[Y]) && (currentCoordinate[Z] >= coordinateMin[Z])){
+            data = currentNode->data;
+            append(&newHead, data);
+        }
+    
+        currentNode = currentNode->next;
+    }
+    showAllNodes(&newHead, -1 , 0);
 }
