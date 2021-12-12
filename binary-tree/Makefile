@@ -13,7 +13,7 @@ insertion.o : insertion.c
 	gcc -o insertion.o -c insertion.c
 
 bt : main.o information.o insertion.o 
-	gcc -o ll main.o information.o insertion.o
+	gcc -o bt main.o information.o insertion.o
 
 clean :
 	rm -rf *.o

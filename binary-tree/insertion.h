@@ -15,4 +15,6 @@ struct Node;
  */
 struct Node* createNewNode(struct Data newData);
 
+struct Node* insert(struct Node *node, struct Data newData);
+
 #endif
