@@ -1,19 +1,42 @@
 #include "information.h"
 
-void showAllNodes(struct Node* root_ref){
-    if (root_ref != NULL){
-        showAllNodes(root_ref->left);
-        printf("%d %f %s\n", root_ref->data.intData, root_ref->data.floatData, root_ref->data.charData);
-        showAllNodes(root_ref->right);
+void preOrder(struct Node **root_ref){
+    if(root_ref == NULL)
+        return;
+    if(*root_ref != NULL){
+        printf("%d %f %s\n", (*root_ref)->data.intData, (*root_ref)->data.floatData, (*root_ref)->data.charData);
+        preOrder(&((*root_ref)->left));
+        preOrder(&((*root_ref)->right));
+    }
+}
+
+void order(struct Node **root_ref){
+    if(root_ref == NULL)
+        return;
+    if(*root_ref != NULL){
+        order(&((*root_ref)->left));
+        printf("%d %f %s\n", (*root_ref)->data.intData, (*root_ref)->data.floatData, (*root_ref)->data.charData);
+        order(&((*root_ref)->right));
+    }
+}
+
+void postOrder(struct Node **root_ref){
+    if(root_ref == NULL)
+        return;
+    if(*root_ref != NULL){
+        postOrder(&((*root_ref)->left));
+        postOrder(&((*root_ref)->right));
+        printf("%d %f %s\n", (*root_ref)->data.intData, (*root_ref)->data.floatData, (*root_ref)->data.charData);
     }
 }
 
 int totalNodes(struct Node *node){
-    if (node == NULL)
-        return 0;
-    if (*node == NULL)
-        return 0;
-    int leftHeight = totalNodes(&((*node).left));
-    int rightHeight = totalNodes(&((*node).right));
-    return(leftHeight + rightHeight + 1);
+    int total = 0;
+
+    if(node == NULL) return 0;
+    
+    total += totalNodes(node->left);
+    total += totalNodes(node->right);
+
+    return total;
 }

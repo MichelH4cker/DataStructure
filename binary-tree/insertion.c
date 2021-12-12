@@ -2,7 +2,7 @@
 
 struct Node* createNewNode(struct Data newData){
     struct Node *newNode;
-    newNode = malloc(sizeof(struct Node*));
+    newNode = malloc(sizeof(struct Node));
 
     if (newNode == NULL)
         return NULL;
@@ -14,38 +14,33 @@ struct Node* createNewNode(struct Data newData){
     return (newNode);
 }
 
-int insere_ArvBin(ArvBin* raiz, int valor){
-    if(raiz == NULL)
-        return 0;
-    struct NO* novo;
-    novo = (struct NO*) malloc(sizeof(struct NO));
-    if(novo == NULL)
-        return 0;
-    novo->info = valor;
-    novo->dir = NULL;
-    novo->esq = NULL;
+void insert(struct Node **root_ref, struct Data newData){
+    if (root_ref == NULL) return;
 
-    if(*raiz == NULL)
-        *raiz = novo;
-    else{
-        struct NO* atual = *raiz;
-        struct NO* ant = NULL;
-        while(atual != NULL){
-            ant = atual;
-            if(valor == atual->info){
-                free(novo);
-                return 0;//elemento já existe
+    struct Node *newNode = createNewNode(newData);
+
+    if((*root_ref) == NULL){
+        (*root_ref) = newNode;
+    } else {
+        struct Node *currentNode = (*root_ref);
+        struct Node *previousNode = NULL;
+
+        while(currentNode != NULL){
+            previousNode = currentNode;
+            if(newData.intData == currentNode->data.intData){
+                free(newNode);
+                return; //elemento já existe
             }
 
-            if(valor > atual->info)
-                atual = atual->dir;
+            if(newData.intData > currentNode->data.intData)
+                currentNode = currentNode->right;
             else
-                atual = atual->esq;
+                currentNode = currentNode->left;
         }
-        if(valor > ant->info)
-            ant->dir = novo;
+        
+        if(newData.intData > previousNode->data.intData)
+            previousNode->right = newNode;
         else
-            ant->esq = novo;
+            previousNode->left = newNode;
     }
-    return 1;
 }

@@ -15,6 +15,12 @@ struct Node;
  */
 struct Node* createNewNode(struct Data newData);
 
-struct Node* insert(struct Node *node, struct Data newData);
+/**
+ * @brief 
+ * 
+ * @param root_ref 
+ * @param newData 
+ */
+void insert(struct Node **root_ref, struct Data newData);
 
 #endif
