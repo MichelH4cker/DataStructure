@@ -80,8 +80,11 @@ int totalNodes(struct Node **root){
     if (root == NULL)  return 0;
     if (*root == NULL) return 0;
 
-    int leftHeight = totalNodes(&((*root)->left));
-    int rightHeight = totalNodes(&((*root)->right));
-
-    return(leftHeight + rightHeight + 1);
+    //int leftHeight = totalNodes(&((*root)->left));
+    //int rightHeight = totalNodes(&((*root)->right));
+    
+    //return(leftHeight + rightHeight + 1);
+    
+    return(treeHeight(&(*root)) + 1);
 }
+
