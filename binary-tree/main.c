@@ -35,9 +35,15 @@ int main (){
     newData3.floatData = 3.0;
     strcpy(newData3.charData, "outra coisa");
 
+    struct Data newData4;
+    newData4.intData = -1;
+    newData4.floatData = 3.0;
+    strcpy(newData4.charData, "lado esquerdo");
+
     insert(&root, newData1);
     insert(&root, newData2);
     insert(&root, newData3);
+    insert(&root, newData4);
 
     printf("preOrder: \n");
     preOrder(&root);
@@ -51,8 +57,12 @@ int main (){
     postOrder(&root);
     printf("=====================\n");
 
-    int total = totalNodes(root) + 1;
-    printf("o total de nodos na árvore binária é: %d \n", total);
+    printf("o total de nodos na árvore binária é: %d \n", totalNodes(&root));
+
+    printf("a altura da árvore é: %d \n", treeHeight(&root));
+    
+    printf("o menor inteiro encontrado na lista foi o número %d  \n", treeMinimum(&root));
+    printf("o maior inteiro encontrado na lista foi o número %d  \n", treeMaximum(&root));
 
     return 0;
 }

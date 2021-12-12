@@ -30,9 +30,33 @@ void postOrder(struct Node **root_ref);
 /**
  * @brief 
  * 
+ * @param root 
+ * @return int 
+ */
+int treeMinimum(struct Node **root);
+
+/**
+ * @brief 
+ * 
+ * @param root 
+ * @return int 
+ */
+int treeMaximum(struct Node **root);
+
+/**
+ * @brief 
+ * 
+ * @param root_ref 
+ * @return int 
+ */
+int treeHeight(struct Node **root_ref);
+
+/**
+ * @brief 
+ * 
  * @param node 
  * @return int 
  */
-int totalNodes(struct Node *root_ref);
+int totalNodes(struct Node **root_ref);
 
 #endif

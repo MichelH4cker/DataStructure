@@ -30,13 +30,58 @@ void postOrder(struct Node **root_ref){
     }
 }
 
-int totalNodes(struct Node *node){
-    int total = 0;
+int treeMinimum(struct Node **root_ref){
+    if (root_ref == NULL)  return -1;
+    if (*root_ref == NULL) return -1;
 
-    if(node == NULL) return 0;
+    struct Node *currentNode = *root_ref;
     
-    total += totalNodes(node->left);
-    total += totalNodes(node->right);
+    int smallestInt;
+    while (currentNode->left != NULL){
+        currentNode = currentNode->left;
+    }
+    smallestInt = currentNode->data.intData;
+    
+    return smallestInt;
+}
 
-    return total;
+int treeMaximum(struct Node **root_ref){
+    if (root_ref == NULL)  return -1;
+    if (*root_ref == NULL) return -1;
+
+    struct Node *currentNode = *root_ref;
+    
+    int biggerInt;
+    while (currentNode->right != NULL){
+        currentNode = currentNode->right;
+    }
+    biggerInt = currentNode->data.intData;
+    
+    return biggerInt;
+
+}
+
+int treeHeight(struct Node **root_ref){
+    if (root_ref == NULL)  return 0;
+    if (*root_ref == NULL) return 0;
+
+    int leftHeight = treeHeight(&((*root_ref))->left);
+    int rightHeight = treeHeight(&((*root_ref))->right);
+
+    if (leftHeight > rightHeight){
+        return (leftHeight + 1);
+    } else {
+        return(rightHeight + 1);
+    }
+        
+}
+
+int totalNodes(struct Node **root){
+    if (root == NULL)  return 0;
+    if (*root == NULL) return 0;
+
+    int leftHeight = totalNodes(&((*root)->left));
+    int rightHeight = totalNodes(&((*root)->right));
+
+    return(leftHeight + rightHeight + 1);
 }
