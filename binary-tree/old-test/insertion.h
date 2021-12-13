@@ -8,28 +8,19 @@ struct Node;
 
 
 /**
- * @brief Create a New Node struct
+ * @brief create a New Node struct
  * 
- * @param newData Struct Data to insert on node 
+ * @param newData struct Data para inserir no nó 
  * @return struct Node* 
  */
 struct Node* createNewNode(struct Data newData);
 
-struct Node* removeCurrent(struct Node* currentNode);
-
 /**
- * @brief 
+ * @brief insere de maneira ordenada na árvore binária
  * 
- * @param root_ref 
- * @param intData 
- */
-void removeByInt(struct Node **root_ref, int intData, int flag);
-
-/**
- * @brief 
- * 
- * @param root_ref 
- * @param newData 
+ * @param root_ref ponteiro para a raiz da árvore
+ * @param newData struct Data para inserir no nó
+ * @param flag 0 para cpf e 1 para nreg 
  */
 void insert(struct Node **root_ref, struct Data newData, int flag);
 

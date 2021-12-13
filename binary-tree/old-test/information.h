@@ -7,66 +7,10 @@ struct Data;
 struct Node;
 
 /**
- * @brief 
+ * @brief exibe toda a árovre de forma ordenada
  * 
- * @param root_ref 
- */
-void preOrder(struct Node **root_ref);
-
-/**
- * @brief 
- * 
- * @param root_ref 
+ * @param root_ref ponteiro para a raiz da árvore
  */
 void order(struct Node **root_ref);
-
-/**
- * @brief 
- * 
- * @param root_ref 
- */
-void postOrder(struct Node **root_ref);
-
-/**
- * @brief 
- * 
- * @param root_ref 
- * @param intData 
- * @param flag 
- * @return int 
- */
-int searchIntData(struct Node **root_ref, int intData, int flag);
-
-/**
- * @brief 
- * 
- * @param root 
- * @return int 
- */
-int treeMinimum(struct Node **root, int flag);
-
-/**
- * @brief 
- * 
- * @param root 
- * @return int 
- */
-int treeMaximum(struct Node **root, int flag);
-
-/**
- * @brief 
- * 
- * @param root_ref 
- * @return int 
- */
-int treeHeight(struct Node **root_ref);
-
-/**
- * @brief 
- * 
- * @param node 
- * @return int 
- */
-int totalNodes(struct Node **root_ref);
 
 #endif
