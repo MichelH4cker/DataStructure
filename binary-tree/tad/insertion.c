@@ -74,7 +74,7 @@ struct Node* removeCurrent(struct Node* currentNode) {
 }
 
 void removeByInt(struct Node **root_ref, int intData){
-    if(*root_ref == NULL) return 0;
+    if(*root_ref == NULL) return;
 
     struct Node* previousNode = NULL;
     struct Node* currentNode = (*root_ref);
