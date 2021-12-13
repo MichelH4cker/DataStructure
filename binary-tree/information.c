@@ -30,6 +30,25 @@ void postOrder(struct Node **root_ref){
     }
 }
 
+int searchIntData(struct Node **root_ref, int intData){
+    if (root_ref == NULL) return -1;
+    
+    struct Node *currentNode = *root_ref;
+    while (currentNode != NULL){
+        if (intData == currentNode->data.intData){
+            return 1;
+        } 
+
+        if (intData > currentNode->data.intData){
+            currentNode = currentNode->right;
+        } else {
+            currentNode = currentNode->left;
+        }
+    }
+    
+    return 0;
+}
+
 int treeMinimum(struct Node **root_ref){
     if (root_ref == NULL)  return -1;
     if (*root_ref == NULL) return -1;

@@ -1,20 +1,13 @@
 #include "main.h"
 
-void freeNode(struct Node* node){
+void freeTree(struct Node* node){
     if(node == NULL) return;
 
-    freeNode(node->left);
-    freeNode(node->right);
+    freeTree(node->left);
+    freeTree(node->right);
     
     free(node);
     node = NULL;
-}
-
-void freeTree(struct Node* root){
-    if(root == NULL) return;
-    
-    freeNode(*(&root));
-    free(root);
 }
 
 int main (){
@@ -57,12 +50,14 @@ int main (){
     postOrder(&root);
     printf("=====================\n");
 
-    printf("o total de nodos na árvore binária é: %d \n", totalNodes(&root));
+    printf("o total de nodos: %d \n", totalNodes(&root));
 
-    printf("a altura da árvore é: %d \n", treeHeight(&root));
+    printf("altura: %d \n", treeHeight(&root));
     
-    printf("o menor inteiro encontrado na lista foi o número %d  \n", treeMinimum(&root));
-    printf("o maior inteiro encontrado na lista foi o número %d  \n", treeMaximum(&root));
+    printf("o menor int: %d\n", treeMinimum(&root));
+    printf("o maior int: %d\n", treeMaximum(&root));
+
+    freeTree(root);
 
     return 0;
 }

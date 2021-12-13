@@ -15,6 +15,16 @@ struct Node;
  */
 struct Node* createNewNode(struct Data newData);
 
+struct Node* removeCurrent(struct Node* currentNode);
+
+/**
+ * @brief 
+ * 
+ * @param root_ref 
+ * @param intData 
+ */
+void removeByInt(struct Node **root_ref, int intData);
+
 /**
  * @brief 
  * 
