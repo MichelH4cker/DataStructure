@@ -17,8 +17,10 @@ int main (){
     readAndStorageFile(&cpfTree, &nRegTree);
 
     //preOrder(&cpfTree);
+    printf("Dados CPF:\n");
     order(&cpfTree);
-    printf("==================\n");
+    printf("===============================\n");
+    printf("Dados NREG:\n");
     order(&nRegTree);
 
     freeTree(cpfTree);
