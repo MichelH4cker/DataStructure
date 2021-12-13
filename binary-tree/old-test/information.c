@@ -4,7 +4,8 @@ void preOrder(struct Node **root_ref){
     if(root_ref == NULL)
         return;
     if(*root_ref != NULL){
-        printf("%d %f %s\n", (*root_ref)->data.intData, (*root_ref)->data.floatData, (*root_ref)->data.charData);
+        printf("%d %d \n", (*root_ref)->data.dataArray[CPF], (*root_ref)->data.dataArray[NREG]);
+        
         preOrder(&((*root_ref)->left));
         preOrder(&((*root_ref)->right));
     }
@@ -15,7 +16,7 @@ void order(struct Node **root_ref){
         return;
     if(*root_ref != NULL){
         order(&((*root_ref)->left));
-        printf("%d %f %s\n", (*root_ref)->data.intData, (*root_ref)->data.floatData, (*root_ref)->data.charData);
+        printf("%d %d \n", (*root_ref)->data.dataArray[CPF], (*root_ref)->data.dataArray[NREG]);
         order(&((*root_ref)->right));
     }
 }
@@ -26,20 +27,20 @@ void postOrder(struct Node **root_ref){
     if(*root_ref != NULL){
         postOrder(&((*root_ref)->left));
         postOrder(&((*root_ref)->right));
-        printf("%d %f %s\n", (*root_ref)->data.intData, (*root_ref)->data.floatData, (*root_ref)->data.charData);
+        printf("%d %d \n", (*root_ref)->data.dataArray[CPF], (*root_ref)->data.dataArray[NREG]);
     }
 }
 
-int searchIntData(struct Node **root_ref, int intData){
+int searchIntData(struct Node **root_ref, int intData, int flag){
     if (root_ref == NULL) return -1;
-    
+
     struct Node *currentNode = *root_ref;
     while (currentNode != NULL){
-        if (intData == currentNode->data.intData){
+        if (intData == currentNode->data.dataArray[flag]){
             return 1;
         } 
 
-        if (intData > currentNode->data.intData){
+        if (intData > currentNode->data.dataArray[flag]){
             currentNode = currentNode->right;
         } else {
             currentNode = currentNode->left;
@@ -49,7 +50,7 @@ int searchIntData(struct Node **root_ref, int intData){
     return 0;
 }
 
-int treeMinimum(struct Node **root_ref){
+int treeMinimum(struct Node **root_ref, int flag){
     if (root_ref == NULL)  return -1;
     if (*root_ref == NULL) return -1;
 
@@ -59,12 +60,12 @@ int treeMinimum(struct Node **root_ref){
     while (currentNode->left != NULL){
         currentNode = currentNode->left;
     }
-    smallestInt = currentNode->data.intData;
+    smallestInt = currentNode->data.dataArray[flag];
     
     return smallestInt;
 }
 
-int treeMaximum(struct Node **root_ref){
+int treeMaximum(struct Node **root_ref, int flag){
     if (root_ref == NULL)  return -1;
     if (*root_ref == NULL) return -1;
 
@@ -74,7 +75,7 @@ int treeMaximum(struct Node **root_ref){
     while (currentNode->right != NULL){
         currentNode = currentNode->right;
     }
-    biggerInt = currentNode->data.intData;
+    biggerInt = currentNode->data.dataArray[flag];
     
     return biggerInt;
 

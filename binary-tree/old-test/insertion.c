@@ -14,7 +14,7 @@ struct Node* createNewNode(struct Data newData){
     return (newNode);
 }
 
-void insert(struct Node **root_ref, struct Data newData){
+void insert(struct Node **root_ref, struct Data newData, int flag){
     if (root_ref == NULL) return;
 
     struct Node *newNode = createNewNode(newData);
@@ -27,18 +27,18 @@ void insert(struct Node **root_ref, struct Data newData){
 
         while(currentNode != NULL){
             previousNode = currentNode;
-            if(newData.intData == currentNode->data.intData){
+            if(newData.dataArray[flag] == currentNode->data.dataArray[flag]){
                 free(newNode);
                 return; //elemento já existe
             }
 
-            if(newData.intData > currentNode->data.intData)
+            if(newData.dataArray[flag] > currentNode->data.dataArray[flag])
                 currentNode = currentNode->right;
             else
                 currentNode = currentNode->left;
         }
         
-        if(newData.intData > previousNode->data.intData)
+        if(newData.dataArray[flag] > previousNode->data.dataArray[flag])
             previousNode->right = newNode;
         else
             previousNode->left = newNode;
@@ -73,14 +73,14 @@ struct Node* removeCurrent(struct Node* currentNode) {
     return node2;
 }
 
-void removeByInt(struct Node **root_ref, int intData){
+void removeByInt(struct Node **root_ref, int intData, int flag){
     if(*root_ref == NULL) return;
 
     struct Node* previousNode = NULL;
     struct Node* currentNode = (*root_ref);
 
     while(currentNode != NULL){
-        if(intData == currentNode->data.intData){
+        if(intData == currentNode->data.dataArray[flag]){
             if(currentNode == (*root_ref)){
                 (*root_ref) = removeCurrent(currentNode);
             } else {
@@ -94,7 +94,7 @@ void removeByInt(struct Node **root_ref, int intData){
         }
 
         previousNode = currentNode;
-        if (intData > currentNode->data.intData){
+        if (intData > currentNode->data.dataArray[flag]){
             currentNode = currentNode->right;
         } else {
             currentNode = currentNode->left;

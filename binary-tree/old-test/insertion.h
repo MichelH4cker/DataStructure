@@ -23,7 +23,7 @@ struct Node* removeCurrent(struct Node* currentNode);
  * @param root_ref 
  * @param intData 
  */
-void removeByInt(struct Node **root_ref, int intData);
+void removeByInt(struct Node **root_ref, int intData, int flag);
 
 /**
  * @brief 
@@ -31,6 +31,6 @@ void removeByInt(struct Node **root_ref, int intData);
  * @param root_ref 
  * @param newData 
  */
-void insert(struct Node **root_ref, struct Data newData);
+void insert(struct Node **root_ref, struct Data newData, int flag);
 
 #endif

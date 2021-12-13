@@ -7,11 +7,15 @@
 
 #include "insertion.h"
 #include "information.h"
+#include "file.h"
+
+#define CPF  0
+#define NREG 1
 
 struct Data {
-    int intData;
-    float floatData;
-    char charData[20];
+    int dataArray[2];
+    // 0 -> CPF
+    // 1 -> NReg
 };
 
 struct Node {

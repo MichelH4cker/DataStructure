@@ -30,10 +30,12 @@ void postOrder(struct Node **root_ref);
 /**
  * @brief 
  * 
- * @param root 
+ * @param root_ref 
+ * @param intData 
+ * @param flag 
  * @return int 
  */
-int treeMinimum(struct Node **root);
+int searchIntData(struct Node **root_ref, int intData, int flag);
 
 /**
  * @brief 
@@ -41,7 +43,15 @@ int treeMinimum(struct Node **root);
  * @param root 
  * @return int 
  */
-int treeMaximum(struct Node **root);
+int treeMinimum(struct Node **root, int flag);
+
+/**
+ * @brief 
+ * 
+ * @param root 
+ * @return int 
+ */
+int treeMaximum(struct Node **root, int flag);
 
 /**
  * @brief 
