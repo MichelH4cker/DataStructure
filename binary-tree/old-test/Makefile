@@ -22,4 +22,5 @@ clean :
 	rm -rf *.o
 	clear
 
-zip : zip old-test *.c *h Makefile
+zip : 
+	zip old-test *.c *h Makefile "dados.txt"
