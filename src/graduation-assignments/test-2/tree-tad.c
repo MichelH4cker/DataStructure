@@ -1,13 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "tree-tad.h" //inclui os Prot�tipos
-
-struct Node *createNewNode(){
-    struct Node *newNode = malloc(sizeof(struct Node *));
-    if(newNode != NULL)
-        newNode = NULL;
-    return newNode;
-}
 
 void freeTree(struct Node* node){
     if(node == NULL) return;
@@ -26,23 +17,16 @@ int heightNode(struct Node* Node){
     return Node->height;
 }
 
-int fatorBalanceamento_Node(struct Node* Node){
+int balancingTree(struct Node* Node){
     return labs(heightNode(Node->left) - heightNode(Node->right));
 }
 
 int bigger(int x, int y){
-    if(x > y)
+    if(x > y){
         return x;
-    else
+    } else{
         return y;
-}
-
-int emptyTree(struct Node **root_ref){
-    if(root_ref == NULL)
-        return 1;
-    if(*root_ref == NULL)
-        return 1;
-    return 0;
+    }
 }
 
 int totalNodes(struct Node **root_ref){
@@ -69,12 +53,10 @@ int heightTree(struct Node **root_ref){
 }
 
 void preOrder(struct Node **root_ref){
-    if(root_ref == NULL)
-        return;
+    if(root_ref == NULL) return;
+
     if(*root_ref != NULL){
-        //printf("%d\n",(*root_ref)->intData);
-        //printf("Node %d: %d\n",(*root_ref)->intData,fatorBalanceamento_Node(*root_ref));
-        printf("Node %d: %d\n",(*root_ref)->intData,heightNode(*root_ref));
+        printf("%d %d %s %s\n",(*root_ref)->data.initialCEP, (*root_ref)->data.endCEP, (*root_ref)->data.city, (*root_ref)->data.state);
         preOrder(&((*root_ref)->left));
         preOrder(&((*root_ref)->right));
     }
@@ -85,52 +67,45 @@ void order(struct Node **root_ref){
         return;
     if(*root_ref != NULL){
         order(&((*root_ref)->left));
-        //printf("%d\n",(*root_ref)->intData);
-        printf("Node %d: H(%d) fb(%d)\n",(*root_ref)->intData,heightNode(*root_ref),fatorBalanceamento_Node(*root_ref));
+        printf("%d %d %s %s\n",(*root_ref)->data.initialCEP, (*root_ref)->data.endCEP, (*root_ref)->data.city, (*root_ref)->data.state);
         order(&((*root_ref)->right));
     }
 }
 
-void postOrder(struct Node **root_ref){
-    if(root_ref == NULL)
-        return;
-    if(*root_ref != NULL){
-        postOrder(&((*root_ref)->left));
-        postOrder(&((*root_ref)->right));
-        printf("%d\n",(*root_ref)->intData);
-    }
-}
+struct Node* searchByCEP(struct Node **root_ref, int key){
+    if(root_ref == NULL) return NULL;
 
-int searchByInt(struct Node **root_ref, int key){
-    if(root_ref == NULL)
-        return 0;
     struct Node* currentNode = *root_ref;
+
     while(currentNode != NULL){
-        if(key == currentNode->intData){
-            return 1;
+        if((key >= currentNode->data.initialCEP) && (key <= currentNode->data.endCEP)){
+            return currentNode;
         }
-        if(key > currentNode->intData)
+
+        if(key > currentNode->data.initialCEP){
             currentNode = currentNode->right;
-        else
+        } else {
             currentNode = currentNode->left;
+        }
     }
-    return 0;
+    
+    return NULL;
 }
 
-//=================================
-void rotationLL(struct Node **A){//LL
-    printf("rotationLL\n");
+void rotationLL(struct Node **A){
     struct Node *B;
+
     B = (*A)->left;
     (*A)->left = B->right;
     B->right = *A;
-    (*A)->height = bigger(heightNode((*A)->left),heightNode((*A)->right)) + 1;
+
+    (*A)->height = bigger(heightNode((*A)->left), heightNode((*A)->right)) + 1;
     B->height = bigger(heightNode(B->left),(*A)->height) + 1;
+
     *A = B;
 }
 
-void rotationRR(struct Node **A){//RR
-    printf("rotationRR\n");
+void rotationRR(struct Node **A){
     struct Node *B;
     B = (*A)->right;
     (*A)->right = B->left;
@@ -140,56 +115,57 @@ void rotationRR(struct Node **A){//RR
     (*A) = B;
 }
 
-void rotationLR(struct Node **A){//LR
+void rotationLR(struct Node **A){
     rotationRR(&(*A)->left);
     rotationLL(A);
 }
 
-void rotationRL(struct Node **A){//RL
+void rotationRL(struct Node **A){
     rotationLL(&(*A)->right);
     rotationRR(A);
 }
 
-int insert(struct Node **root_ref, int key){
+int insert(struct Node **root_ref, struct Data newData){
     int res;
-    if(*root_ref == NULL){//�rvore vazia ou n� folha
+    if(*root_ref == NULL){
         struct Node *newNode;
-        newNode = (struct Node*)malloc(sizeof(struct Node));
-        if(newNode == NULL)
-            return 0;
 
-        newNode->intData = key;
+        newNode = malloc(sizeof(struct Node));
+        if(newNode == NULL) return 0;
+
+        newNode->data = newData;
         newNode->height = 0;
         newNode->left = NULL;
         newNode->right = NULL;
+
         *root_ref = newNode;
         return 1;
     }
 
     struct Node *currentNode = *root_ref;
-    if(key < currentNode->intData){
-        if((res = insert(&(currentNode->left), key)) == 1){
-            if(fatorBalanceamento_Node(currentNode) >= 2){
-                if(key < (*root_ref)->left->intData ){
+    if(newData.initialCEP < currentNode->data.initialCEP){
+        if((res = insert(&(currentNode->left), newData)) == 1){
+            if(balancingTree(currentNode) >= 2){
+                if(newData.initialCEP < (*root_ref)->left->data.initialCEP){
                     rotationLL(root_ref);
-                }else{
+                } else{
                     rotationLR(root_ref);
                 }
             }
         }
     }else{
-        if(key > currentNode->intData){
-            if((res = insert(&(currentNode->right), key)) == 1){
-                if(fatorBalanceamento_Node(currentNode) >= 2){
-                    if((*root_ref)->right->intData < key){
+        if(newData.initialCEP > currentNode->data.initialCEP){
+            if((res = insert(&(currentNode->right), newData)) == 1){
+                if(balancingTree(currentNode) >= 2){
+                    if((*root_ref)->right->data.initialCEP < newData.initialCEP){
                         rotationRR(root_ref);
                     }else{
                         rotationRL(root_ref);
                     }
                 }
             }
-        }else{
-            printf("key duplicado!!\n");
+        } else {
+            printf("ERROR\n");
             return 0;
         }
     }
@@ -197,72 +173,4 @@ int insert(struct Node **root_ref, int key){
     currentNode->height = bigger(heightNode(currentNode->left),heightNode(currentNode->right)) + 1;
 
     return res;
-}
-
-struct Node* searchSmallestNode(struct Node* currentNode){
-    struct Node *node1 = currentNode;
-    struct Node *node2 = currentNode->left;
-    while(node2 != NULL){
-        node1 = node2;
-        node2 = node2->left;
-    }
-    return node1;
-}
-
-int removeNode(struct Node **root_ref, int key){
-	if(*root_ref == NULL){// key n�o existe
-	    printf("key n�o existe!!\n");
-	    return 0;
-	}
-
-    int res;
-	if(key < (*root_ref)->intData){
-	    if((res = removeNode(&(*root_ref)->left,key)) == 1){
-            if(fatorBalanceamento_Node(*root_ref) >= 2){
-                if(heightNode((*root_ref)->right->left) <= heightNode((*root_ref)->right->right))
-                    rotationRR(root_ref);
-                else
-                    rotationRL(root_ref);
-            }
-	    }
-	}
-
-	if((*root_ref)->intData < key){
-	    if((res = removeNode(&(*root_ref)->right, key)) == 1){
-            if(fatorBalanceamento_Node(*root_ref) >= 2){
-                if(heightNode((*root_ref)->left->right) <= heightNode((*root_ref)->left->left) )
-                    rotationLL(root_ref);
-                else
-                    rotationLR(root_ref);
-            }
-	    }
-	}
-
-	if((*root_ref)->intData == key){
-	    if(((*root_ref)->left == NULL || (*root_ref)->right == NULL)){// n� tem 1 filho ou nenhum
-			struct Node *oldNodede = (*root_ref);
-			if((*root_ref)->left != NULL)
-                *root_ref = (*root_ref)->left;
-            else
-                *root_ref = (*root_ref)->right;
-			free(oldNodede);
-		}else { // n� tem 2 filhos
-			struct Node* temp = searchSmallestNode((*root_ref)->right);
-			(*root_ref)->intData = temp->intData;
-			removeNode(&(*root_ref)->right, (*root_ref)->intData);
-            if(fatorBalanceamento_Node(*root_ref) >= 2){
-				if(heightNode((*root_ref)->left->right) <= heightNode((*root_ref)->left->left))
-					rotationLL(root_ref);
-				else
-					rotationLR(root_ref);
-			}
-		}
-		if (*root_ref != NULL)
-            (*root_ref)->height = bigger(heightNode((*root_ref)->left),heightNode((*root_ref)->right)) + 1;
-		return 1;
-	}
-
-	(*root_ref)->height = bigger(heightNode((*root_ref)->left),heightNode((*root_ref)->right)) + 1;
-
-	return res;
 }
