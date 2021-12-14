@@ -22,4 +22,5 @@ clean :
 	rm -rf *.o
 	clear
 
-zip : zip test-2 *.c *h Makefile
+zip : 
+	zip test-2 *.c *h Makefile

@@ -6,7 +6,6 @@ int main(){
     readAndStorageFile(&root);
     
     int id;
-    printf("Digita: ");
     scanf("%d", &id);
 
     remoteController(&root, id);

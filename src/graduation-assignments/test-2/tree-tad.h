@@ -7,57 +7,57 @@ struct Node;
 struct Data;
 
 /**
- * @brief 
+ * @brief desaloca a memória de todos os nós da árvore binária AVL
  * 
- * @param root_ref 
+ * @param root_ref struct Node que aponta para a raiz da árvore binária
  */
 void freeTree(struct Node *root_ref);
 
 /**
- * @brief 
+ * @brief insere os dados contidos na struct Data na árvore binária AVL
  * 
- * @param root_ref 
+ * @param root_ref struct Node que aponta para a raiz da árvore binária
  * @param newData 
  * @return int 
  */
 int insert(struct Node **root_ref, struct Data newData);
 
 /**
- * @brief 
+ * @brief retorna como inteiro a altura da árvore binária AVL
  * 
- * @param root_ref 
+ * @param root_ref struct Node que aponta para a raiz da árvore bináriastruct Node que aponta para a raiz da árvore binária
  * @return int 
  */
 int heightTree(struct Node **root_ref);
 
 /**
- * @brief 
+ * @brief retorna como inteiro a quantidade total de nós inseridos na árvore binária AVL
  * 
- * @param root_ref 
+ * @param root_ref struct Node que aponta para a raiz da árvore binária
  * @return int 
  */
 int totalNodes(struct Node **root_ref);
 
 /**
- * @brief 
+ * @brief procura pela árvore binária AVL um nó que contenha o cep dado entre o cep incial do nó e o cep final do mesmo nó
  * 
- * @param root_ref 
- * @param key 
+ * @param root_ref struct Node que aponta para a raiz da árvore binária
+ * @param cep cep buscado na árvore binária AVL
  * @return int 
  */
-struct Node* searchByCEP(struct Node **root_ref, int key);
+struct Node* searchByCEP(struct Node **root_ref, int cep);
 
 /**
- * @brief 
+ * @brief mostra todos os nós da árvore binária AVL da maneira pré ordem
  * 
- * @param root_ref 
+ * @param root_ref struct Node que aponta para a raiz da árvore binária
  */
 void preOrder(struct Node **root_ref);
 
 /**
- * @brief 
+ * @brief mostra todos os nós da árvore binária AVL da maneira em ordem
  * 
- * @param root_ref 
+ * @param root_ref struct Node que aponta para a raiz da árvore binária
  */
 void order(struct Node **root_ref);
 

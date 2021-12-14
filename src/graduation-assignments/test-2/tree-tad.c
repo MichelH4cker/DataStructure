@@ -30,13 +30,13 @@ int bigger(int x, int y){
 }
 
 int totalNodes(struct Node **root_ref){
-    if (root_ref == NULL)
-        return 0;
-    if (*root_ref == NULL)
-        return 0;
-    int alt_left = totalNodes(&((*root_ref)->left));
-    int alt_right = totalNodes(&((*root_ref)->right));
-    return(alt_left + alt_right + 1);
+    if (root_ref == NULL) return 0;
+    if (*root_ref == NULL) return 0;
+
+    int leftHeight = totalNodes(&((*root_ref)->left));
+    int rightHeight = totalNodes(&((*root_ref)->right));
+
+    return(leftHeight + rightHeight + 1);
 }
 
 int heightTree(struct Node **root_ref){
